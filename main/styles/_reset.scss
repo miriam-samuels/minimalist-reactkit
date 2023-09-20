@@ -1,0 +1,81 @@
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&display=swap');
+
+/* Remove default margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default border from input elements */
+input {
+  border: none;
+   font-family: 'Work Sans', sans-serif;
+}
+
+/* Remove default underline from anchor elements */
+a {
+   font-family: 'Work Sans', sans-serif;
+  text-decoration: none;
+}
+
+/* Remove default list styles from ul and li elements */
+ul, li {
+  list-style-type: none;
+   font-family: 'Work Sans', sans-serif;
+}
+
+/* Remove default outline from button elements */
+button {
+  outline: none;
+   font-family: 'Work Sans', sans-serif;
+   
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  display: none; /* hide the cancel button and the decoration */
+  
+}
+
+input[type='search'] {
+  -webkit-appearance: none; /* remove the default appearance on webkit browsers */
+  appearance: none; /* remove the default appearance on other browsers */
+}
+
+
+
+html,body{
+    
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+// reset select styles
+select{
+      appearance: none;
+  // Additional resets for further consistency
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}

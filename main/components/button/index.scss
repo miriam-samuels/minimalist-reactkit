@@ -1,0 +1,35 @@
+.btn {
+   // display: inline-block;
+   min-width: 100px;
+   width: 100%;
+   font-size: 14px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: transparent;
+
+   &-primary {
+      height: 50px;
+      color: white;
+      background-color: var(--color-primary);
+   }
+
+   &-secondary {
+      height: 50px;
+      color: white;
+      background-color: var(--color-secondary);
+   }
+
+   &-tetiary {
+      height: 50px;
+      background-color: #D6F5D7;
+      color: #34CE37;
+   }
+
+   &-alternate {
+      height: 50px;
+      background-color: transparent;
+      color: #34CE37;
+      border: 1px solid #34CE37;
+   }
+}

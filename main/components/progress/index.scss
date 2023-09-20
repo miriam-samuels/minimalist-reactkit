@@ -1,0 +1,101 @@
+#progress {
+   & .horizontal {
+      &.progress {
+         display: flex;
+         align-items: center;
+
+
+         & .progress-step {
+            position: relative;
+            width: 100%;
+            text-align: left;
+
+
+            & a {
+               text-decoration: none;
+
+               & button {
+                  position: relative;
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #141914;
+                  border-radius: 50%;
+                  background-color: #141914;
+                  color: white;
+                  z-index: 2;
+                  font-size: 9px;
+               }
+
+               & hr {
+                  position: absolute;
+                  top: 30%;
+                  right: 0%;
+                  transform: translate(0%, -50%);
+                  width: 100%;
+                  border: 1px solid white;
+               }
+            }
+
+            & span {
+               position: relative;
+               // left: -5px;
+               display: block;
+               padding-top: 1em
+            }
+         }
+
+         & div:last-child {
+            width: 30px;
+         }
+      }
+   }
+
+   & .vertical {
+      &.progress {
+         height: 100%;
+
+         & .progress-step {
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            & a {
+               text-decoration: none;
+               display: flex;
+               align-items: flex-start;
+               gap: 1em;
+
+               & div {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+               }
+
+               & button {
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid white;
+                  border-radius: 50%;
+                  background-color: #141914;
+                  color: white;
+                  z-index: 2;
+                  font-size: 10px;
+               }
+
+               & hr {
+                  height: 40px;
+               }
+
+               & span {
+                  display: block;
+                  width: 100%;
+                  margin-top: 4px;
+               }
+            }
+
+         }
+      }
+   }
+
+}
