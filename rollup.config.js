@@ -1,4 +1,3 @@
-import babel from "rollup-plugin-babel"
 import resolve from "@rollup/plugin-node-resolve"
 import external from "rollup-plugin-peer-deps-external"
 import scss from "rollup-plugin-scss";
@@ -22,14 +21,11 @@ export default [
      ],
       plugins: [
          resolve({
-            extensions: [".js", ".jsx", ".ts", ".tsx"], // List of file extensions to resolve
-         }),
-         babel({
-            exclude: 'node_modules/**',
-            presets: ['@babel/preset-react'],
+            extensions: [".js", ".jsx", ".ts", ".tsx"],
          }),
          scss({
             output: "./dist/index.css",
+            fileName: "index.css",
             runtime: require("sass"),
          }),
          typescript({
