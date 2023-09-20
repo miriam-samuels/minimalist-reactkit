@@ -1,4 +1,4 @@
-# Minimlist Reactkit
+# Minimlist Reactkit (UNDER CONSTRUCTION -- use at your own discretion)
 
 🎉 Minimalist Reactkit provides you with easily restyable components
 
