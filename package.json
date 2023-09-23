@@ -1,6 +1,6 @@
 {
   "name": "minimalist-reactkit",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Lightweight, flexible and highly customizable reusable components for React-devs designed for easy integration into your projects, providing a clean and modern aesthetic.",
   "main": "dist/index.js",
   "type": "module",
