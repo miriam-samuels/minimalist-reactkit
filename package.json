@@ -1,57 +1,29 @@
 {
   "name": "minimalist-reactkit",
-  "version": "1.2.1",
-  "description": "Lightweight, flexible and highly customizable reusable components for React-devs designed for easy integration into your projects, providing a clean and modern aesthetic.",
-  "main": "dist/index.js",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "tsc",
-    "build-lib": "rollup -c",
-    "build-doc": "react-scripts build",
-    "test": "react-scripts test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miriam-samuels/minimalist-reactkit.git"
-  },
-  "keywords": [
-    "typescript",
-    "react",
-    "reusable",
-    "components",
-    "lightweight",
-    "flexible",
-    "easily",
-    "customizable",
-    "restylable"
-  ],
-  "author": "Miriam",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/miriam-samuels/minimalist-reactkit/issues"
-  },
-  "homepage": "https://github.com/miriam-samuels/minimalist-reactkit#readme",
-  "devDependencies": {
-    "sass": "^1.66.1",
-    "typescript": "^5.2.2",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "sass": "^1.68.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
   }
 }
