@@ -1,0 +1,25 @@
+.alert{
+   position: fixed;
+   top: 10%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   min-width: 300px;
+   max-width: 500px;
+   padding: 1.5em;
+   border-radius: 10px;
+
+   &.default{
+
+   }
+
+   &.info{
+      
+   }
+
+   &.danger{
+      background-color: red;
+      color: white;
+
+   }
+
+}

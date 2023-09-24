@@ -1,0 +1,30 @@
+#file-selector{
+   &.file-selector{
+      & .preview{
+         // width: 70px;
+         // height: 70px;
+         display: flex;
+         align-items:flex-end;
+         gap: 2em;
+         // background-color: #EDEEF1;
+         // border-radius: 50%;
+         & img{
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 1px solid rgba(128, 128, 128, 0.301);
+         }
+         & svg{
+            margin: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 1px solid rgba(128, 128, 128, 0.301);
+         }
+      }
+
+      & input{
+         display: none;
+      }
+   }
+}
