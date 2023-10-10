@@ -28,3 +28,5 @@ $ yarn add minimalist-reactkit
 ```
 
 ## Documentation
+
+Check the [documentation](https://minimalist-reactkit.web.app/) to get you started!
