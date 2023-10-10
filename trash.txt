@@ -1,0 +1,136 @@
+<div className="container-fluid documentation">
+        <div className="row">
+          <div className="col-md-3 col-xl-2 left-sidebar">
+            <div className="logo-wrapper">
+              {/* <img src="../template/demo_1/src/assets/images/logo.svg" alt="logo" className="img-fluid"> */}
+            </div>
+            <h5 className="left-menu-title">Documentation</h5>
+            <ul className="left-menu">
+              <li><a href="#introduction"> Introduction </a></li>
+              <li><a href="#fileStructure"> File Structure </a></li>
+            </ul>
+            <h6 className="left-menu-title">Installation</h6>
+            <ul className="left-menu">
+              <li><a href="#setupEnvironment"> Setup Environment </a></li>
+              <li><a href="#templateInstallation"> Template Installation </a></li>
+            </ul>
+            <h6 className="left-menu-title">Deployment</h6>
+            <ul className="left-menu">
+              <li><a href="#deployment"> Deploy React App </a></li>
+            </ul>
+            <h6 className="left-menu-title">Basic Structure</h6>
+            <ul className="left-menu">
+              <li><a href="#appComponent"> App Component </a></li>
+              <li><a href="#navbar"> Navbar </a></li>
+              <li><a href="#settingsPanel"> Setting panel </a></li>
+              <li><a href="#leftSidebar">sidebar </a></li>
+              <li><a href="#footer"> Footer </a></li>
+            </ul>
+            <h6 className="left-menu-title">Other Information</h6>
+            <ul className="left-menu">
+              <li><a href="#customerSupport"> Customer Support </a></li>
+            </ul>
+          </div>
+          <div className="col-md-9 col-xl-10 main-panel">
+            <div className="main-panel-wrapper">
+              <h2 className="mt-2 text-center font-weight-light text-muted text-uppercase mb-4">Documentation</h2>
+              <div className="card grid-margin">
+                <div className="card-body">
+                  <h3 id="introduction" className="mb-4">Introduction</h3>
+                  <p>Corona React Admin is a responsive React template that is based on the CSS framework Bootstrap 4 and it is built with Sass. Sass compiler makes it easier to code and customize. If you are unfamiliar with Bootstrap or Sass, visit their
+                    website and read through the documentation. All of Bootstrap components have been modified to fit the style of Corona React Admin and provide a consistent look throughout the template.</p>
+                  <p>Before you start working with the template, we suggest you go through the pages that are bundled with the theme. Most of the template example pages contain quick tips on how to create or use a component which can
+                    be really helpful when you need to create something on the fly.</p>
+                </div>
+              </div>
+              <div className="card grid-margin">
+                <div className="card-body">
+                  <h3 id="fileStructure" className="mb-4">File Structure</h3>
+                  <p>Once you have download the package you will see the following folder structure inside the folder.</p>
+                  <code className="code-non-editable">
+                    Corona/
+                    ├── React
+                    ├── template
+                    ├── modern-vertical
+                    ├── src/
+                    ├── app/
+                    ├── assets/
+                    ├── images/
+                    ├── styles/
+                    ├── index.js
+                    ├── public/
+                    ├── .gitignore
+                    ├── CHANGELOG.md
+                    ├── package.json
+                    ├── README.md
+                    ├── CHANGELOG.md
+                    ├── documentation
+
+                  </code>
+                </div>
+              </div>
+              <div className="card grid-margin">
+                <div className="card-body">
+                  <h3>Installation</h3>
+                  <h4 id="setupEnvironment" className="pt-4">Set up the Development Environment</h4>
+                  <p>Install <a href="https://nodejs.org/en/" target="_blank">Node.js and npm</a> if they are not already on your machine.</p>
+                  <h4 id="templateInstallation" className="pt-4">Template Installation</h4>
+                  <p>Go to the project directory and install the React local project dependencies.</p>
+                  <p>Run <code>npm install</code>. This command install the dependencies in the local <code>node_modules</code> folder.
+                    By default, <code>npm install</code> will install all modules listed as dependencies in <code>package.json</code>.</p>
+                  <code className="code-non-editable">npm install</code>
+                  <code className="code-non-editable">npm start</code>
+                  <p>The <code>npm start</code> command launches the server, watches your files, and rebuilds the app as you make changes to those files.
+                  </p>
+                  <p>For more detailed information to install the React application, visit this official React <a href="https://reactjs.org/docs/getting-started.html" target="_blank">documentation website</a>.</p>
+                </div>
+              </div>
+              <div className="card grid-margin">
+                <div className="card-body">
+                  <h3 id="deployment">Deployment</h3>
+                  <h4 className="pt-4">Deploy React app </h4>
+                  <p>For the simplest deployment, create a production build and copy the output directory to a web server.</p>
+                  <p>1. Start with the production build:</p>
+                  <code className="code-non-editable">npm run-script build</code>
+                  <p>2. Copy everything within the output folder (build/) to a folder on the server.</p>
+                </div>
+              </div>
+              <div className="card grid-margin">
+                <div className="card-body">
+                  <h3>Basic Structure</h3>
+                  <h4 className="pt-4" id="appComponent">App Component</h4>
+                  <code className="code-non-editable">
+
+                    import React from 'react';
+                    import ReactDOM from 'react-dom';
+                    import {"BrowserRouter"} from 'react-router-dom';
+                    import App from './app/App';
+                    import * as serviceWorker from './serviceWorker';
+
+                    ReactDOM.render(
+                    {"<BrowserRouter>"}
+                    <App />
+                    {" </BrowserRouter>"}
+                    , document.getElementById('root'));
+
+                    serviceWorker.unregister();
+                  </code>
+                  <h4 className="pt-4" id="navbar">Navbar</h4>
+
+                  <h4 className="pt-4" id="leftSidebar">Sidebar</h4>
+
+                  <h4 className="pt-4" id="footer">Footer</h4>
+
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <h3 id="customerSupport" className="mb-4">Customer Support</h3>
+                  <p>If you face any issue while building your dashboard with Corona React Admin, please contact us via <a href="https://bootstrapdash.freshdesk.com/support/tickets/new" target="_blank">Bootstrapdash support form</a> .</p>
+                  <p>We will respond to you as quickly as we can. Thank you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
