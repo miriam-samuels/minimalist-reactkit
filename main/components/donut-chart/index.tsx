@@ -99,18 +99,18 @@ const DonutChart: React.FC<Props> = ({
   //   Number.isNaN(value / total)
   //     ? '--'
   //     : `${((value / total) * 100).toFixed(2)}%`,
-  height = 500,
+  height = 300,
   interactive = true,
-  innerRadius = 0.7,
+  innerRadius = 0.5,
   legend = true,
   // onMouseEnter = (item) => item,
   // onMouseLeave = (item) => item,
   onClick = (item, toggled) => (toggled ? item : null),
-  outerRadius = 0.9,
+  outerRadius = 0.7,
   selectedOffset = 0.03,
   strokeColor = '#212121',
   toggledOffset = 0.04,
-  width = 750,
+  width = 300,
   // totalNumber,
 }) => {
   const [selected, setSelected] = useState(interactive ? data[0] : null);
@@ -209,7 +209,7 @@ const DonutChart: React.FC<Props> = ({
             y="60%"
             textAnchor="middle"
           >
-            Total Requests
+            {/* Total Requests */}
           </text>
           <text
             className={`${className}-innertext-value`}
@@ -217,7 +217,7 @@ const DonutChart: React.FC<Props> = ({
             y="90%"
             textAnchor="middle"
           >
-            {total}
+            {/* {total} */}
             {/* {formatValues(selected.value, total)} */}
           </text>
         </g>

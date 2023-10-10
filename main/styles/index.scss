@@ -1,6 +1,6 @@
 @import './_mixins.scss';
-@import './_typo.scss';
-@import './_reset.scss';
+// @import './_typo.scss';
+// @import './_reset.scss';
 
 :root {
   --color-primary: #fab641;
@@ -59,26 +59,26 @@ img {
   backface-visibility: hidden;
 }
 
-html {
-  font-size: 62.5%;
+// html {
+//   font-size: 62.5%;
 
-  @include respond(big-desktop) {
-    font-size: 100%;
-  }
+//   @include respond(big-desktop) {
+//     font-size: 100%;
+//   }
 
-  @include respond(tab-land) {
-    font-size: 66.25%; //1rem = 8px
-  }
+//   @include respond(tab-land) {
+//     font-size: 66.25%; //1rem = 8px
+//   }
 
-  @include respond(tab-port) {
-    font-size: 50%; //1rem = 9px
-  }
+//   @include respond(tab-port) {
+//     font-size: 50%; //1rem = 9px
+//   }
 
-  @include respond(phone) {
-    font-size: 50%;
-  }
-
-}
+//   @include respond(phone) {
+//     font-size: 50%;
+//   }
+// 
+// }
 
 input,
 select {
@@ -118,6 +118,11 @@ select {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.8em;
+}
+
+.flex-2{
+  display: flex;
+  gap: 1em;
 }
 
 .text-right {

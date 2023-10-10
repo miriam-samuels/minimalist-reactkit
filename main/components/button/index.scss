@@ -1,35 +1,88 @@
 .btn {
    // display: inline-block;
-   min-width: 100px;
-   width: 100%;
+   width: fit-content;
    font-size: 14px;
+   font-weight: 500;
    border: none;
    border-radius: 5px;
    cursor: pointer;
    background-color: transparent;
+   height: 46px;
+   padding: 0 2em;
 
    &-primary {
-      height: 50px;
       color: white;
-      background-color: var(--color-primary);
+      background-color: #37a8e9 ;
+
+      &.btn-info {
+         background-color: #37a8e9 ;
+         &:hover{
+            background-color: #37a8e976;
+         }
+      }
+
+      &.btn-danger {
+         background-color: #e93737 ;
+         &:hover{
+            background-color: #e9373776;
+         }
+      }
+
+      &.btn-success {
+         background-color: #03ab44 ;
+         &:hover{
+            background-color: #03ab4476;
+         }
+      }
+
+      &.btn-warning {
+         background-color: #e9b437 ;
+         &:hover{
+            background-color: #e9b43776;
+         }
+      }
    }
 
    &-secondary {
-      height: 50px;
-      color: white;
-      background-color: var(--color-secondary);
+      color: #121212;
+      background-color: white;
+      border: 1.5px solid black;
+      &.btn-info {
+         border-color: #37a8e9 ;
+         color: #37a8e9;
+         &:hover{
+            background-color: #37a8e976;
+            color: white;
+         }
+      }
+
+      &.btn-danger {
+         border-color: #e93737 ;
+         color: #e93737;
+         &:hover{
+            background-color: #e9373776;
+            color: white;
+         }
+      }
+
+      &.btn-success {
+         border-color: #03ab44 ;
+         color: #03ab44;
+         &:hover{
+            background-color: #03ab4476;
+            color: white;
+         }
+      }
+
+      &.btn-warning {
+         border-color: #e9b437 ;
+         color: #e9b437;
+         &:hover{
+            background-color: #e9b43776;
+            color: white;
+         }
+      }
    }
 
-   &-tetiary {
-      height: 50px;
-      background-color: #D6F5D7;
-      color: #34CE37;
-   }
 
-   &-alternate {
-      height: 50px;
-      background-color: transparent;
-      color: #34CE37;
-      border: 1px solid #34CE37;
-   }
 }

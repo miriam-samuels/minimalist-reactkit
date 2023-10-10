@@ -9,11 +9,10 @@ export interface ModalProps {
 	children?: React.ReactNode | Array<React.ReactNode>;
 	show?: boolean;
 	className?: string;
-	type?: "success" | "warning" | "pending";
 	hide: () => void;
 };
 function Modal(props: ModalProps) {
-	const { heading, sub, children, className, show, type, hide } = props;
+	const { heading, sub, children, className, show, hide } = props;
 	const ref = useClose(hide);
 	if (show) {
 		return (

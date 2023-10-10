@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.scss'
-
 
 interface InputProps extends React.InputHTMLAttributes<any> {
 	label?: string;
 	className?: string;
 	warning?: string;
 	showWarning?: boolean;
-	change?:
-		| React.ChangeEventHandler<HTMLInputElement>
-		| React.ChangeEventHandler<HTMLTextAreaElement>
-		| any;
+	onChange?:
+	| React.ChangeEventHandler<HTMLInputElement>
+	| React.ChangeEventHandler<HTMLTextAreaElement>
+	| any;
 	as?: "textarea";
 	rows?: number;
 	required?: boolean;
@@ -31,9 +30,17 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 		rows,
 		disabled,
 		id,
-		change,
+		onChange,
 		...rest
 	} = props;
+
+	const [isPasswordVisible, setisPasswordVisible] = useState(false)
+
+	const tooglePaswword = () => {
+		setisPasswordVisible(current => !current)
+	}
+
+	const passwordType = isPasswordVisible ? 'text' : 'password'
 	return (
 		<div className="input-group">
 			{label && (
@@ -49,38 +56,48 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 					)}
 				</label>
 			)}
-			{as ? (
-				<textarea
-					name={name}
-					className={`${className}`}
-					placeholder={placeholder}
-					onChange={change}
-					required={required}
-					minLength={minLength}
-					defaultValue={defaultValue}
-					rows={rows}
-					style={showWarning ? { borderColor: "#d92d20" } : {}}
-					disabled={disabled}
-					id={id}
-					{...rest}
-				/>
-			) : (
-				<input
-					name={name}
-					className={`input-field ${className}`}
-					placeholder={placeholder}
-					type={type}
-					disabled={disabled}
-					onChange={change}
-					id={id}
-					required={required}
-					minLength={minLength}
-					defaultValue={defaultValue}
-					style={showWarning ? { borderColor: "#d92d20" } : {}}
-					{...rest}
-				/>
-			)}
-
+			<div className='input'>
+				{as ? (
+					<textarea
+						name={name}
+						className={`${className}`}
+						placeholder={placeholder}
+						onChange={onChange}
+						required={required}
+						minLength={minLength}
+						defaultValue={defaultValue}
+						rows={rows}
+						style={showWarning ? { borderColor: "#d92d20" } : {}}
+						disabled={disabled}
+						id={id}
+						{...rest}
+					/>
+				) : (
+					<input
+						name={name}
+						className={`input-field ${className}`}
+						placeholder={placeholder}
+						type={type === 'password' ? passwordType : type}
+						disabled={disabled}
+						onChange={onChange}
+						id={id}
+						required={required}
+						minLength={minLength}
+						defaultValue={defaultValue}
+						style={showWarning ? { borderColor: "#d92d20" } : {}}
+						{...rest}
+					/>
+				)}
+				{type === 'password' && (
+					<button type='button' onClick={tooglePaswword}>
+						{
+							isPasswordVisible ?
+								<span className='p-icon'>Hide</span> :
+								<span className='p-icon'>Show</span> 
+						}
+					</button>
+				)}
+			</div>
 			{showWarning && warning && (
 				<label className="input-warning">{warning}</label>
 			)}

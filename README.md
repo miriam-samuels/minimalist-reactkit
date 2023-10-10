@@ -1,4 +1,4 @@
-# Minimlist Reactkit
+# Minimlist Reactkit 
 
 🎉 Minimalist Reactkit provides you with easily restyable components (UNDER CONSTRUCTION -- use at your own discretion)
 
@@ -28,3 +28,5 @@ $ yarn add minimalist-reactkit
 ```
 
 ## Documentation
+
+Check the [documentation](https://minimalist-reactkit.web.app/) to get you started!
