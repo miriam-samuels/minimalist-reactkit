@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import {  useState } from 'react'
 import useClose from '../../hooks/useClose'
 import './index.scss'
 
@@ -39,7 +39,7 @@ function Select(props: Props) {
    return (
       <div ref={ref} id='select'>
          <div className='select'>
-            <div className='select-input' onClick={toggleSelect} style={showWarning ? { borderColor: 'red' } : {}}>
+            <div className={`select-input ${className}`} onClick={toggleSelect} style={showWarning ? { borderColor: 'red' } : {}}>
                {label && <label className='select-input_label'>{label}</label>}
                <div className='select-input_field'>
                   {value?.label}

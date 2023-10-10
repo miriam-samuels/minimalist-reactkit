@@ -387,7 +387,9 @@ type Option = { label: any; value: any; disabled?: boolean; clickable?: boolean 
                   <Select
                      name="city"
                      label="City"
-                     handleChange={(option: string, name: string, idx?: number | undefined) => { }}
+                     handleChange={(option: string, name: string, idx?: number | undefined) => {
+                        console.log(option, name, idx);
+                     }}
                   />
                </div>
             </div>

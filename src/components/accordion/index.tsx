@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, ReactNode, SetStateAction, useState } from 'react'
+import { Dispatch, Fragment, ReactNode, SetStateAction, useState } from 'react'
 
 import './index.scss'
 // if you don't want to pass an array just can call the AccordionMain component for each  item
