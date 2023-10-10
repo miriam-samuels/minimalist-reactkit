@@ -1,0 +1,102 @@
+@import "../../styles/mixins";
+
+.input-label {
+   display: block;
+   font-weight: 600;
+   font-size: 12px;
+   margin: 0.7em 0;
+   // color: var(--color-gray-400);
+   text-align: left;
+
+   &.disabled {
+      color: var(--color-gray-100) !important;
+   }
+}
+
+.input-field {
+   box-sizing: border-box;
+   display: block;
+   // width: 100%;
+
+   border: 1px solid var(--color-gray-light);
+   border-radius: 0.9rem;
+   padding: 0.9rem ;
+   box-sizing: border-box;
+   font-size: 16px;
+   color: black;
+
+   &:disabled {
+      color: var(--color-gray-100) !important;
+   }
+
+   &--required {
+      color: var(--color-red-dark);
+
+   }
+
+   &--optional {
+      color: var(--color-gray-100);
+      font-weight: 400;
+   }
+
+   @include respond(tab-port) {
+      font-size: 1.6rem;
+
+   }
+
+   &::placeholder {
+      color: var(--color-gray-100);
+   }
+
+}
+
+
+
+
+.input-group {
+   display: block;
+   margin: 1rem 0;
+
+   // margin-bottom: 1.6em;
+   & .input {
+      position: relative;
+
+      & button {
+         cursor: pointer;
+         width: fit-content;
+         height: fit-content;
+         border: none;
+         background-color: transparent;
+         position: absolute;
+         right: 3%;
+         top: 55%;
+         transform: translate(-50%, -50%);
+      }
+   }
+}
+
+.input-warning {
+   display: block;
+   color: var(--color-red-dark);
+   font-size: 1.2rem;
+   font-weight: 600;
+   width: 100%;
+   position: relative;
+   word-wrap: break-word;
+   line-height: 1.6rem;
+   text-align: left;
+}
+
+
+textarea {
+   padding: 1rem 1.4rem;
+   box-sizing: border-box;
+   display: block;
+   width: 100%;
+   border-radius: 20px;
+   box-sizing: border-box;
+   font-size: 13px;
+   border: 1px solid var(--color-gray-light);
+   color: var(--color-gray-400);
+   resize: none;
+}
