@@ -396,8 +396,8 @@ type Option = { label: any; value: any; disabled?: boolean; clickable?: boolean 
             <div className="card" >
                <div className="card-body">
                   <h3 id="customerSupport" className="mb-4">Customer Support</h3>
-                  <p>If you face any issue while building your dashboard with Corona React Admin, please contact us via <a href="https://bootstrapdash.freshdesk.com/support/tickets/new" target="_blank">Bootstrapdash support form</a> .</p>
-                  <p>We will respond to you as quickly as we can. Thank you.</p>
+                  <p>If you face any issue while building with Minimalist Reactkit, please create a GitHub issue via <a href="https://github.com/miriam-samuels/minimalist-reactkit/issues" target="_blank">#CreateIssue</a> .</p>
+                  <p>We will respond to you as quickly as we can. Thank you!!!</p>
                </div>
             </div>
          </div>
