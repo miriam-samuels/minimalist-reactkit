@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss'
 
-type AlertProps = {
+export type AlertProps = {
    className?: string;
    text: string;
    show: boolean;

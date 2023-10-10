@@ -5,18 +5,18 @@ import './index.scss'
 // but you'd create the state yourself in the parent component 
 //  then pass it as isOpen and setIsOpen
 
-export type AccordionProps = {
+export type AccordionItem = {
    id: string | number;
    heading: ReactNode;
-   value: ReactNode;
+   body: ReactNode;
 }
-function Accordion({ item, controls, icon, alwaysOpen }: { item: AccordionProps[], controls?: boolean, icon?: ReactNode, alwaysOpen?: boolean }) {
+function Accordion({ item, controls, icon, alwaysOpen }: { item: AccordionItem[], controls?: boolean, icon?: ReactNode, alwaysOpen?: boolean }) {
    const [isOpen, setIsOpen] = useState<number | string>(0)
    return (
       <div id='accordion'>
          {/* if you pass an array of objects  */}
          {
-            Array.isArray(item) && item?.map((item: AccordionProps, idx: number) => (
+            Array.isArray(item) && item?.map((item: AccordionItem, idx: number) => (
                <AccordionMain key={idx} item={item} isOpen={isOpen} setIsOpen={setIsOpen} controls={controls} icon={icon} alwaysOpen={alwaysOpen} />
             ))
          }
@@ -25,17 +25,17 @@ function Accordion({ item, controls, icon, alwaysOpen }: { item: AccordionProps[
    )
 }
 
-export default Accordion 
+export default Accordion
 
-type Props = {
-   item: AccordionProps;
+type AccordionProps = {
+   item: AccordionItem;
    isOpen?: string | number;
    setIsOpen: Dispatch<SetStateAction<string | number>> | void
    controls?: boolean;
    icon?: ReactNode
    alwaysOpen?: boolean;
 }
-export const AccordionMain = (props: Props) => {
+export const AccordionMain = (props: AccordionProps) => {
    const { item, isOpen, setIsOpen, controls = true, icon, alwaysOpen = false } = props
 
    const changeTab = (id: string | number) => {
@@ -55,7 +55,7 @@ export const AccordionMain = (props: Props) => {
                      {
                         icon ? icon :
                            <Fragment>
-                              {isOpen !== item.id ? <span className="material-icons">cancel</span> : <span className="material-icons-outlined">add_circle</span>}
+                              {isOpen !== item.id ? <span className="material-icons">show</span> : <span className="material-icons-outlined">hide</span>}
                            </Fragment>
                      }
                   </span>
@@ -65,7 +65,7 @@ export const AccordionMain = (props: Props) => {
          {
             (alwaysOpen ? isOpen !== item.id : isOpen === item.id) &&
             <div className='accordion-body'>
-               {item.value}
+               {item.body}
             </div>
          }
 
