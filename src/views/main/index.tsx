@@ -1,28 +1,41 @@
-import { useState } from "react"
-import Accordion from "../../components/accordion"
-import Alert from "../../components/alert"
-import CodeBlock from "../../components/code-block"
-import { accordionItems } from "../../variables"
-import { BtnPrimary, BtnSecondary } from "../../components/button"
-import InputField from "../../components/inputfield"
-import Modal from "../../components/modal"
-import Select from "../../components/select"
-import Toggle from "../../components/toggle"
+
+
+import { useState } from "react";
+import Accordion from "../../components/accordion";
+import Alert from "../../components/alert";
+import CodeBlock from "../../components/code-block";
+import { accordionItems } from "../../variables";
+import { BtnPrimary, BtnSecondary } from "../../components/button";
+import InputField from "../../components/inputfield";
+import Modal from "../../components/modal";
+import Select from "../../components/select";
+import Toggle from "../../components/toggle";
 
 function Main() {
-   const [showAlert, setShowAlert] = useState(false)
-   const [showModal, setShowModal] = useState(false)
-   const [isOn, setIsOn] = useState(false)
+   const [showAlert, setShowAlert] = useState(false);
+   const [showModal, setShowModal] = useState(false);
+   const [isOn, setIsOn] = useState(false);
    return (
       // <div className="col-md-9 col-xl-10 main-panel">
       <div className="main-panel">
          <div className="main-panel-wrapper">
-            <h2 id="introduction" className="mt-2 text-center font-weight-light text-muted text-uppercase mb-4">Documentation</h2>
+            <h2
+               id="introduction"
+               className="mt-2 text-center font-weight-light text-muted text-uppercase mb-4"
+            >
+               Documentation
+            </h2>
             <div className="card grid-margin">
                <div className="card-body">
                   <h3 className="mb-4">Introduction</h3>
-                  <p>Minimalist Reactkit provides you with easily restyable components.</p>
-                  <p>Lightweight, flexible and highly customizable reusable components for React-devs designed for easy integration into your projects, providing a clean and modern aesthetic.</p>
+                  <p>
+                     Minimalist Reactkit provides you with easily restyable components.
+                  </p>
+                  <p>
+                     Lightweight, flexible and highly customizable reusable components
+                     for React-devs designed for easy integration into your projects,
+                     providing a clean and modern aesthetic.
+                  </p>
                </div>
             </div>
 
@@ -30,22 +43,21 @@ function Main() {
                <div className="card-body" id="packageInstallation">
                   <h3>Installation</h3>
                   <h4 className="pt-4">Set up the Development Environment</h4>
-                  <p>Install <a href="https://nodejs.org/en/" target="_blank">Node.js and the package manager of choice</a>, if they are not already on your machine.</p>
+                  <p>
+                     Install{" "}
+                     <a href="https://nodejs.org/en/" target="_blank">
+                        Node.js and the package manager of choice
+                     </a>
+                     , if they are not already on your machine.
+                  </p>
                   <div>
                      <h4 className="pt-4">NPM Install</h4>
-                     <CodeBlock>
-                        npm i minimalist-reactkit
-                     </CodeBlock>
+                     <CodeBlock>npm i minimalist-reactkit</CodeBlock>
                      <h4 className="pt-4">Yarn Add</h4>
-                     <CodeBlock>
-                        yarn add minimalist-reactkit
-                     </CodeBlock>
+                     <CodeBlock>yarn add minimalist-reactkit</CodeBlock>
                      <h4 className="pt-4">PNPM Add</h4>
-                     <CodeBlock>
-                        pnpm add minimalist-reactkit
-                     </CodeBlock>
+                     <CodeBlock>pnpm add minimalist-reactkit</CodeBlock>
                   </div>
-
                </div>
             </div>
             <div className="card grid-margin" id="getStarted">
@@ -53,8 +65,8 @@ function Main() {
                   <h3 className="mb-4">Get Started</h3>
                   <p>Once you have download the package, try this</p>
                   <CodeBlock>
-                     {`
-import React from 'react';
+                    
+ {`import React from 'react';
 
 import {BtnPrimary} from 'minimalist-reactkit';
 
@@ -67,9 +79,7 @@ function App(){
                   </CodeBlock>
                   <p>Ensure to import styles at root file</p>
 
-                  <CodeBlock>
-                     import 'minimalist-reactkit/index.css';
-                  </CodeBlock>
+                  <CodeBlock>import 'minimalist-reactkit/index.css';</CodeBlock>
                </div>
             </div>
 
@@ -110,10 +120,7 @@ type AccordionItem = {
 `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
-                  <Accordion
-                     item={accordionItems}
-                  />
-
+                  <Accordion item={accordionItems} />
                </div>
             </div>
             <div className="card grid-margin" id="alert">
@@ -142,12 +149,14 @@ type AlertProps = {
 `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
-                  <BtnPrimary onClick={() => { setShowAlert(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} alert</BtnPrimary>
-                  <Alert
-                     text="Hello World"
-                     show={showAlert}
-                     className="info"
-                  />
+                  <BtnPrimary
+                     onClick={() => {
+                        setShowAlert(!showAlert);
+                     }}
+                  >
+                     Click to {showAlert ? "hide" : "show"} alert
+                  </BtnPrimary>
+                  <Alert text="Hello World" show={showAlert} className="info" />
                </div>
             </div>
             <div className="card grid-margin" id="button">
@@ -188,7 +197,8 @@ interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes
                      <BtnPrimary className="btn-warning">Click Me</BtnPrimary>
                   </div>
 
-                  <br /><br />
+                  <br />
+                  <br />
                   <div className="flex-2">
                      <BtnSecondary className="btn-success">Click Me</BtnSecondary>
                      <BtnSecondary className="btn-info">Click Me</BtnSecondary>
@@ -230,10 +240,7 @@ interface InputProps extends React.InputHTMLAttributes<any> {
 `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
-                  <InputField
-                     label="Name"
-                     required
-                  />
+                  <InputField label="Name" required />
                </div>
             </div>
             <div className="card grid-margin" id="modal">
@@ -273,13 +280,19 @@ interface ModalProps {
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
                   <p>Note : click outside the modal to close</p>
-                  <BtnPrimary onClick={() => { setShowModal(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} modal</BtnPrimary>
+                  <BtnPrimary
+                     onClick={() => {
+                        setShowModal(!showAlert);
+                     }}
+                  >
+                     Click to {showAlert ? "hide" : "show"} modal
+                  </BtnPrimary>
                   <Modal
                      heading="React"
                      show={showModal}
                      hide={() => setShowModal(false)}
                   >
-                     <img src="/react.svg" alt="react" style={{ width: '300px' }} />
+                     <img src="/react.svg" alt="react" style={{ width: "300px" }} />
                   </Modal>
                </div>
             </div>
@@ -361,20 +374,32 @@ interface Props {
                   <Toggle
                      checked={isOn}
                      name="switch"
-                     onChange={() => setIsOn(current => !current)}
+                     onChange={() => setIsOn((current) => !current)}
                   />
                </div>
             </div>
-            <div className="card" >
+            <div className="card">
                <div className="card-body">
-                  <h3 id="customerSupport" className="mb-4">Customer Support</h3>
-                  <p>If you face any issue while building with Minimalist Reactkit, please create a GitHub issue via <a href="https://github.com/miriam-samuels/minimalist-reactkit/issues" target="_blank">#CreateIssue</a> .</p>
+                  <h3 id="customerSupport" className="mb-4">
+                     Customer Support
+                  </h3>
+                  <p>
+                     If you face any issue while building with Minimalist Reactkit,
+                     please create a GitHub issue via{" "}
+                     <a
+                        href="https://github.com/miriam-samuels/minimalist-reactkit/issues"
+                        target="_blank"
+                     >
+                        #CreateIssue
+                     </a>{" "}
+                     .
+                  </p>
                   <p>We will respond to you as quickly as we can. Thank you!!!</p>
                </div>
             </div>
          </div>
       </div>
-   )
+   );
 }
 
-export default Main
+export default Main;

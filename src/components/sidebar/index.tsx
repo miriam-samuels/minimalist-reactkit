@@ -28,9 +28,9 @@ function Sidebar() {
             {/* <li><a href="#range"> Double Slider </a></li> */}
             <li><a href="#search-select"> Search Select </a></li>
             {/* <li><a href="#slider"> Slider </a></li> */}
-            <li><a href="#tab"> Tab </a></li>
             {/* <li><a href="#table"> Table </a></li> */}
             <li><a href="#toggle"> Toggle </a></li>
+            <li><a href="#tab"> Tab </a></li>
 
          </ul>
 
