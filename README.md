@@ -1,6 +1,6 @@
 # Minimlist Reactkit 
 
-🎉 Minimalist Reactkit provides you with easily restyable components (UNDER CONSTRUCTION -- use at your own discretion)
+🎉 Minimalist Reactkit provides you with easily restyable components (UNDER CONSTRUCTION)
 
 ## Installation
 

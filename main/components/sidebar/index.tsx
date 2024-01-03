@@ -17,21 +17,20 @@ function Sidebar() {
             <li><a href="#accordion"> Accordion </a></li>
             <li><a href="#alert"> Alert </a></li>
             <li><a href="#button"> Button </a></li>
-            <li><a href="#card"> Card </a></li>
-            <li><a href="#codeBlock"> Code Block </a></li>
-            <li><a href="#donutChart"> Donut Chart </a></li>
-            <li><a href="#fileSelector"> File Selector </a></li>
+            {/* <li><a href="#card"> Card </a></li> */}
+            {/* <li><a href="#codeBlock"> Code Block </a></li> */}
+            {/* <li><a href="#fileSelector"> File Selector </a></li> */}
             <li><a href="#inputField"> Input Field </a></li>
             <li><a href="#modal"> Modal </a></li>
-            <li><a href="#picker"> Picker </a></li>
-            <li><a href="#pill"> Pill </a></li>
-            <li><a href="#progress"> Progress </a></li>
-            <li><a href="#range"> Double Slider </a></li>
+            {/* <li><a href="#picker"> Picker </a></li> */}
+            {/* <li><a href="#pill"> Pill </a></li> */}
+            {/* <li><a href="#progress"> Progress </a></li> */}
+            {/* <li><a href="#range"> Double Slider </a></li> */}
             <li><a href="#search-select"> Search Select </a></li>
-            <li><a href="#slider"> Slider </a></li>
-            <li><a href="#tab"> Tab </a></li>
-            <li><a href="#table"> Table </a></li>
+            {/* <li><a href="#slider"> Slider </a></li> */}
+            {/* <li><a href="#table"> Table </a></li> */}
             <li><a href="#toggle"> Toggle </a></li>
+            <li><a href="#tab"> Tab </a></li>
 
          </ul>
 

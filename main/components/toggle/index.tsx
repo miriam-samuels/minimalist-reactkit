@@ -4,16 +4,18 @@ import './index.scss'
 interface Props {
    checked: boolean;
    name: string;
-   change: () => void
+   onChange: () => void
+   color?: string
 }
 
 function Toggle(props: Props) {
-   const { checked, name, change } = props
+   const { checked, name, onChange } = props
    return (
-      <div>
-         <input type="checkbox" className="toggle" checked={checked} onChange={change} name={name} />
+      <div className='toggle-con'>
+         <span className='toggle-btn'></span>
+         <input type="checkbox" className="toggle" checked={checked} onChange={onChange} name={name} />
       </div>
    )
 }
 
-export default Toggle
+export default Toggle  
