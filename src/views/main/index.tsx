@@ -2,16 +2,17 @@ import { useState } from "react"
 import Accordion from "../../components/accordion"
 import Alert from "../../components/alert"
 import CodeBlock from "../../components/code-block"
-import { accordionItems, donutItems } from "../../variables"
+import { accordionItems } from "../../variables"
 import { BtnPrimary, BtnSecondary } from "../../components/button"
-import DonutChart from "../../components/donut-chart"
 import InputField from "../../components/inputfield"
 import Modal from "../../components/modal"
 import Select from "../../components/select"
+import Toggle from "../../components/toggle"
 
 function Main() {
    const [showAlert, setShowAlert] = useState(false)
    const [showModal, setShowModal] = useState(false)
+   const [isOn, setIsOn] = useState(false)
    return (
       // <div className="col-md-9 col-xl-10 main-panel">
       <div className="main-panel">
@@ -141,7 +142,7 @@ type AlertProps = {
 `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
-                  <button onClick={() => { setShowAlert(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} alert</button>
+                  <BtnPrimary onClick={() => { setShowAlert(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} alert</BtnPrimary>
                   <Alert
                      text="Hello World"
                      show={showAlert}
@@ -194,75 +195,6 @@ interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes
                      <BtnSecondary className="btn-danger">Click Me</BtnSecondary>
                      <BtnSecondary className="btn-warning">Click Me</BtnSecondary>
                   </div>
-               </div>
-            </div>
-            <div className="card grid-margin" id="donutChart">
-               <div className="card-body">
-                  <h3 className="mb-4">Donut Chart</h3>
-                  <CodeBlock>
-                     {`
-import {DonutChart} from 'minimalist-reactkit';
-
-const data = [
-   {
-     label: 'Flight Requests',
-     value: 130,
-   },
-   {
-     label: 'Visa Requests',
-     value: 40,
-   },
-   {
-      label: 'Visa Requests',
-      value: 83,
-    },
- ]
-
-<DonutChart
-   data={data}
-   innerRadius={0.2}
-   outerRadius={0.3}
-   width={300}
-   height={300}
-   colors={['#34CE37', '#D6F5D7', '#FBEE2A']}
-   strokeColor={'#00000000'}
-   legend={true}
-   totalNumber={243}
-/>
-`}
-                  </CodeBlock>
-
-                  <h3 className="mb-4">Types</h3>
-                  <CodeBlock>
-                     {`
-export type Props = {
-   className?: string;
-   colors?: Colors;
-   data: Item[];
-   height?: number;
-   innerRadius?: number;
-   legend?: boolean;
-   onClick?: (item: Item, toggled: boolean) => void;
-   onMouseEnter?: (item: Item) => void;
-   onMouseLeave?: (item: Item) => void;
-   outerRadius?: number;
-   width?: number;
-   totalNumber?: number
- };
-`}
-                  </CodeBlock>
-                  <h3 className="mb-4">Preview</h3>
-                  <DonutChart
-                     data={donutItems}
-                     innerRadius={0.2}
-                     outerRadius={0.3}
-                     width={300}
-                     height={300}
-                     colors={['#34CE37', '#D6F5D7', '#FBEE2A']}
-                     strokeColor={'#00000000'}
-                     legend={true}
-                     totalNumber={243}
-                  />
                </div>
             </div>
             <div className="card grid-margin" id="inputField">
@@ -341,7 +273,7 @@ interface ModalProps {
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
                   <p>Note : click outside the modal to close</p>
-                  <button onClick={() => { setShowModal(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} modal</button>
+                  <BtnPrimary onClick={() => { setShowModal(!showAlert) }}>Click to {showAlert ? 'hide' : 'show'} modal</BtnPrimary>
                   <Modal
                      heading="React"
                      show={showModal}
@@ -358,9 +290,13 @@ interface ModalProps {
                      {`
 import {Select} from 'minimalist-reactkit';
 
-<InputField
-   label="Name"
-   required
+<Select
+name="city"
+label="City"
+options={[{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }]}
+handleChange={(option: string, name: string, idx?: number | undefined) => {
+   console.log(option, name, idx);
+}}
 />
 `}
                   </CodeBlock>
@@ -369,17 +305,18 @@ import {Select} from 'minimalist-reactkit';
                   <CodeBlock>
                      {`
 interface Props {
+   idx?: number
    name: string;
-   handleChange: (option: string, name: string, idx?: number) => void;
    label?: string;
-   options?:  Option[];
+   options?: any[] | Option[];
    defaultValue?: Option;
    className?: string;
-   showWarning?: boolean;
-   idx?: number 
+   isSearchable?: boolean;
+   placeholder?: string;
+   handleChange: (value: string, name: string, idx?: number) => void;
 }
 
-type Option = { label: any; value: any; disabled?: boolean; clickable?: boolean }
+type Option = { label: any; value: any; disabled?: boolean; }
 
 `}
                   </CodeBlock>
@@ -387,9 +324,44 @@ type Option = { label: any; value: any; disabled?: boolean; clickable?: boolean 
                   <Select
                      name="city"
                      label="City"
+                     options={[{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }]}
                      handleChange={(option: string, name: string, idx?: number | undefined) => {
                         console.log(option, name, idx);
                      }}
+                  />
+               </div>
+            </div>
+            <div className="card grid-margin" id="toggle">
+               <div className="card-body">
+                  <h3 className="mb-4">Toggle</h3>
+                  <CodeBlock>
+                     {`
+import {Toggle} from 'minimalist-reactkit';
+
+<Toggle
+   checked={isOn}
+   name="switch"
+   onChange={() => setIsOn(current => !current)}
+   />
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Types</h3>
+                  <CodeBlock>
+                     {`
+interface Props {
+   checked: boolean;
+   name: string;
+   onChange: () => void
+}
+
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Preview</h3>
+                  <Toggle
+                     checked={isOn}
+                     name="switch"
+                     onChange={() => setIsOn(current => !current)}
                   />
                </div>
             </div>
