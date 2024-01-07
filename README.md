@@ -5,10 +5,12 @@
 ## Installation
 
 ```
-$ npm i minimalist-reactkit
-$ yarn add minimalist-reactkit
+npm i minimalist-reactkit
 ```
 
+```
+yarn add minimalist-reactkit
+```
 ## How To Use
 
 ```jsx
