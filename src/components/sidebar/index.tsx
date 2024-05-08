@@ -20,6 +20,7 @@ function Sidebar() {
             {/* <li><a href="#card"> Card </a></li> */}
             {/* <li><a href="#codeBlock"> Code Block </a></li> */}
             {/* <li><a href="#fileSelector"> File Selector </a></li> */}
+            <li><a href="#form"> Form </a></li>
             <li><a href="#inputField"> Input Field </a></li>
             <li><a href="#modal"> Modal </a></li>
             {/* <li><a href="#picker"> Picker </a></li> */}
@@ -28,9 +29,9 @@ function Sidebar() {
             {/* <li><a href="#range"> Double Slider </a></li> */}
             <li><a href="#search-select"> Search Select </a></li>
             {/* <li><a href="#slider"> Slider </a></li> */}
-            {/* <li><a href="#table"> Table </a></li> */}
             <li><a href="#toggle"> Toggle </a></li>
             <li><a href="#tab"> Tab </a></li>
+            <li><a href="#table"> Table </a></li>
 
          </ul>
 

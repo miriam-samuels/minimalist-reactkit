@@ -20,6 +20,7 @@ function Modal(props: ModalProps) {
 				<div className="modal-container">
 					<div className="modal-box"></div>
 					<div className={`modal ${className && className}`} ref={ref}>
+						<button className='cancel-btn' onClick={hide}>x</button>
 						<div className="modal-head">
 							{heading && <h4 className="modal-heading">{heading}</h4>}
 							{sub && <span className="modal-sub">{sub}</span>}

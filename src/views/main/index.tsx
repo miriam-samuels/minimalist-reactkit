@@ -10,6 +10,10 @@ import InputField from "../../components/inputfield";
 import Modal from "../../components/modal";
 import Select from "../../components/select";
 import Toggle from "../../components/toggle";
+import Tab from "../../components/tab";
+import Table from "../../components/table";
+import Pill from "../../components/pill";
+import Form from "../../components/form";
 
 function Main() {
    const [showAlert, setShowAlert] = useState(false);
@@ -65,8 +69,8 @@ function Main() {
                   <h3 className="mb-4">Get Started</h3>
                   <p>Once you have download the package, try this</p>
                   <CodeBlock>
-                    
- {`import React from 'react';
+
+                     {`import React from 'react';
 
 import {BtnPrimary} from 'minimalist-reactkit';
 
@@ -207,6 +211,55 @@ interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes
                   </div>
                </div>
             </div>
+            <div className="card grid-margin" id="form">
+               <div className="card-body">
+                  <h3 className="mb-4">Form</h3>
+                  <CodeBlock>
+                     {`
+import {Form, InputField} from 'minimalist-reactkit';
+<Form onSubmit = {() => {...}}>
+   <InputField
+      label="Name"
+      required
+   />
+   <BtnSecondary className="btn-success" type="submit">Submit</BtnSecondary>
+</Form>
+
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Form With Normal HTML</h3>
+
+                  <CodeBlock>
+                     {`
+import {Form, InputField} from 'minimalist-reactkit';
+<Form onSubmit = {() => {...}}>
+   <input
+      type="text"
+      required
+      data-mtk-input // compulsory for form validation
+   />
+   <button type="submit">Submit</button>
+</Form>
+
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Types</h3>
+                  <CodeBlock>
+                     {`
+FormHTMLAttributes<HTMLFormElement>
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Preview</h3>
+                  <Form onSubmit={() => { }}>
+                     <InputField
+                        label="Name"
+                        required
+                     /> <br/>
+                     <BtnSecondary className="btn-success" type="submit">Submit</BtnSecondary>
+                  </Form>
+               </div>
+            </div>
             <div className="card grid-margin" id="inputField">
                <div className="card-body">
                   <h3 className="mb-4">Input Field</h3>
@@ -304,8 +357,9 @@ interface ModalProps {
 import {Select} from 'minimalist-reactkit';
 
 <Select
-name="city"
-label="City"
+name="option"
+label="Options"
+isSearchable={true}
 options={[{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }]}
 handleChange={(option: string, name: string, idx?: number | undefined) => {
    console.log(option, name, idx);
@@ -335,8 +389,9 @@ type Option = { label: any; value: any; disabled?: boolean; }
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
                   <Select
-                     name="city"
-                     label="City"
+                     name="option"
+                     label="Options"
+                     isSearchable={true}
                      options={[{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }]}
                      handleChange={(option: string, name: string, idx?: number | undefined) => {
                         console.log(option, name, idx);
@@ -375,6 +430,136 @@ interface Props {
                      checked={isOn}
                      name="switch"
                      onChange={() => setIsOn((current) => !current)}
+                  />
+               </div>
+            </div>
+
+            <div className="card grid-margin" id="tab">
+               <div className="card-body">
+                  <h3 className="mb-4">Tab</h3>
+                  <CodeBlock>
+                     {`
+import {Tab} from 'minimalist-reactkit';
+
+<Tab
+   head={['Greetings', 'People', 'Exercises']}
+   body={[
+      <p>Welcome to the greetings tab</p>,
+      <p>Welcome to the people tab</p>,
+      <p>Welcome to the exercises tab</p>,
+   ]}
+/>
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Types</h3>
+                  <CodeBlock>
+                     {`
+interface TabProps {
+   head: React.ReactNode[];
+   body: React.ReactNode[];
+   className?: string;
+   setCurrent?: (idx: number) => void
+}
+
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Preview</h3>
+                  <Tab
+                     head={['Greetings', 'People', 'Exercises']}
+                     body={[
+                        <p>Welcome to the greetings tab</p>,
+                        <p>Welcome to the people tab</p>,
+                        <p>Welcome to the exercises tab</p>,
+                     ]}
+                  />
+               </div>
+            </div>
+
+            <div className="card grid-margin" id="table">
+               <div className="card-body">
+                  <h3 className="mb-4">Table</h3>
+                  <CodeBlock>
+                     {`
+import {Table} from 'minimalist-reactkit';
+
+<Table
+   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
+   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+   body={[
+      { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+      { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+      { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+   ]}
+/>
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Table Usage 2</h3>
+
+                  <CodeBlock>
+                     {`
+import {Table} from 'minimalist-reactkit';
+
+const tableData = [
+   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+   { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+]
+
+<Table
+   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
+   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+   body={tableData}
+   isRow = {true}
+   Row={TableRow}
+   rowProps={{ currentTime: '24h' }} // pass props to row component 
+/>
+
+const TableRow = ({data}:any) => { // data is passed by default
+   return(
+      <tr>
+         <td>{data.name}</td>
+         <td>{data.status}</td>
+         <td>{data.flightId}</td>
+         <td>{data.trip}</td>
+         <td>{data.date}</td>
+         <td>{data.officer}</td>
+         <td>{data.action}</td>
+      </tr>
+   )
+}
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Types</h3>
+                  <CodeBlock>
+                     {`
+interface TableProps {
+   head?: React.ReactNode[];
+   body: any[];
+   accessor?: string[]; // for table header sorting
+   itemsPerPage?: number;
+   className?: string
+   showFilter?: boolean;
+   style?: any
+   isRow?: boolean
+   Row?: any
+   rowProps?: any,
+   isLoading?: boolean
+}
+
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Preview </h3>
+                  <Table
+                     head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
+                     accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+                     body={[
+                        { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+                        { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+                        { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+                     ]}
                   />
                </div>
             </div>
