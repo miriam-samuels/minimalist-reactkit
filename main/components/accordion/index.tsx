@@ -1,4 +1,4 @@
-import { Dispatch, Fragment, ReactNode, SetStateAction, useState } from 'react'
+import React, { Dispatch, Fragment, ReactNode, SetStateAction, useState } from 'react'
 
 import './index.scss'
 // if you don't want to pass an array just can call the AccordionMain component for each  item
@@ -10,24 +10,23 @@ export type AccordionItem = {
    heading: ReactNode;
    body: ReactNode;
 }
-function Accordion({ item, controls, icon, alwaysOpen }: { item: AccordionItem[], controls?: boolean, icon?: ReactNode, alwaysOpen?: boolean }) {
-   const [isOpen, setIsOpen] = useState<number | string>(0)
+
+export function Accordion({ item, controls, icon, alwaysOpen }: { item: AccordionItem[], controls?: boolean, icon?: React.ReactNode, alwaysOpen?: boolean }) {
+   const [isOpen, setIsOpen] = React.useState<string | number>(0);
    return (
       <div id='accordion'>
          {/* if you pass an array of objects  */}
          {
             Array.isArray(item) && item?.map((item: AccordionItem, idx: number) => (
-               <AccordionMain key={idx} item={item} isOpen={isOpen} setIsOpen={setIsOpen} controls={controls} icon={icon} alwaysOpen={alwaysOpen} />
+               <AccordionMain item={item} isOpen={isOpen} setIsOpen={setIsOpen} controls={controls} icon={icon} alwaysOpen={alwaysOpen} />
             ))
          }
-
       </div>
    )
 }
 
-export default Accordion
 
-type AccordionProps = {
+export type AccordionProps = {
    item: AccordionItem;
    isOpen?: string | number;
    setIsOpen: Dispatch<SetStateAction<string | number>> | void

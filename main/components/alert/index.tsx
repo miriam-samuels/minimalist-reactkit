@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.scss'
 
 export type AlertProps = {
@@ -6,7 +7,7 @@ export type AlertProps = {
    show: boolean;
    hide?: () => void;
 }
-function Alert(props: AlertProps) {
+export function Alert(props: AlertProps) {
    const { className, text, show } = props;
    if(show){
       return (
@@ -17,5 +18,3 @@ function Alert(props: AlertProps) {
    } else return <></>
   
 }
-
-export default Alert

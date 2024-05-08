@@ -1,14 +1,15 @@
+import React from 'react';
 import './index.scss'
 
 
-interface Props {
+export interface ToggleProps {
    checked: boolean;
    name: string;
    onChange: () => void
    color?: string
 }
 
-function Toggle(props: Props) {
+export function Toggle(props: ToggleProps) {
    const { checked, name, onChange } = props
    return (
       <div className='toggle-con'>
@@ -17,5 +18,3 @@ function Toggle(props: Props) {
       </div>
    )
 }
-
-export default Toggle  

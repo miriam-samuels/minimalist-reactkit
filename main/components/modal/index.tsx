@@ -11,7 +11,7 @@ export interface ModalProps {
 	className?: string;
 	hide: () => void;
 };
-function Modal(props: ModalProps) {
+export function Modal(props: ModalProps) {
 	const { heading, sub, children, className, show, hide } = props;
 	const ref = useClose(hide);
 	if (show) {
@@ -20,6 +20,7 @@ function Modal(props: ModalProps) {
 				<div className="modal-container">
 					<div className="modal-box"></div>
 					<div className={`modal ${className && className}`} ref={ref}>
+						<button className='cancel-btn' onClick={hide}>x</button>
 						<div className="modal-head">
 							{heading && <h4 className="modal-heading">{heading}</h4>}
 							{sub && <span className="modal-sub">{sub}</span>}
@@ -34,5 +35,3 @@ function Modal(props: ModalProps) {
 	}
 }
 
-
-export default Modal

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './index.scss'
 
-interface InputProps extends React.InputHTMLAttributes<any> {
+export interface InputProps extends React.InputHTMLAttributes<any> {
 	label?: string;
 	className?: string;
 	warning?: string;
@@ -70,6 +70,7 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 						style={showWarning ? { borderColor: "#d92d20" } : {}}
 						disabled={disabled}
 						id={id}
+						data-mtk-input={true}
 						{...rest}
 					/>
 				) : (
@@ -85,6 +86,7 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 						minLength={minLength}
 						defaultValue={defaultValue}
 						style={showWarning ? { borderColor: "#d92d20" } : {}}
+						data-mtk-input={true}
 						{...rest}
 					/>
 				)}
@@ -105,4 +107,3 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 	);
 };
 
-export default InputField

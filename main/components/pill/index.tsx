@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
 import './index.scss'
 
-
-interface PillProps {
+export interface PillProps {
 	bg?: string;
 	color?: string;
 	text?: ReactNode;
@@ -10,7 +9,7 @@ interface PillProps {
 	className?: string;
 	children?: React.ReactNode[] | React.ReactNode;
 }
-function Pill(props: PillProps) {
+export function Pill(props: PillProps) {
 	const {  text,className, children } = props;
 
 	return (
@@ -21,4 +20,3 @@ function Pill(props: PillProps) {
 	);
 }
 
-export default Pill

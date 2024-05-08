@@ -1,13 +1,13 @@
-
+import React from 'react';
 import { useRef, useState } from 'react'
-import { BtnPrimary, BtnSecondary } from '../button';
 import './index.scss'
+import { BtnPrimary, BtnSecondary } from '../../index';
 
-interface FileProps {
+export interface FileProps {
    defaultVal?: string;
    onImageSelect: (file: any) => void
 }
-function FileSelector({ onImageSelect, defaultVal }: FileProps) {
+export function FileSelector({ onImageSelect, defaultVal }: FileProps) {
    const [previewImage, setPreviewImage] = useState<any>(defaultVal);
    const fileRef = useRef<any>(null)
 
@@ -51,5 +51,3 @@ function FileSelector({ onImageSelect, defaultVal }: FileProps) {
       </div>
    )
 }
-
-export default FileSelector
