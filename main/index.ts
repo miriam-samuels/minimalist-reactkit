@@ -6,7 +6,7 @@ export * from "./components/button/index";
 // export * from "./components/card/index";
 // export * from "./components/donut-chart/index";
 // export * from "./components/file-selector/index";
-// export * from "./components/form/index";
+export * from "./components/form/index";
 export * from "./components/inputfield/index";
 export * from "./components/modal/index";
 // export * from "./components/picker/index";
