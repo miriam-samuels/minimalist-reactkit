@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import './index.scss'
 
-
 export interface PillProps {
 	bg?: string;
 	color?: string;

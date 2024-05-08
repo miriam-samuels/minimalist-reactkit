@@ -6,8 +6,9 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
    disabled?: boolean;
    label?: string;
    name?: string;
+   double?: boolean;
 }
-export const DoubleRange: React.FC<Props> = ({ className = '', label, name, min = 0, max = 100, defaultValue = 25, ...props }) => {
+export const DoubleRange: React.FC<Props> = ({ className = '', label, name, min = 0, max = 100, defaultValue = 25, double, ...props }) => {
    return (
       <div id='range'>
          <div className='range'>
@@ -23,14 +24,18 @@ export const DoubleRange: React.FC<Props> = ({ className = '', label, name, min 
                   defaultValue={30}
                   {...props}
                />
-               <input
-                  type='range'
-                  className={className}
-                  min={min}
-                  max={max}
-                  defaultValue={70}
-                  {...props}
-               />
+               {
+                  double &&
+                  <input
+                     type='range'
+                     className={className}
+                     min={min}
+                     max={max}
+                     defaultValue={70}
+                     {...props}
+                  />
+               }
+
             </div>
             {/* <div className="range-price">
                <label htmlFor="min">Min</label>
