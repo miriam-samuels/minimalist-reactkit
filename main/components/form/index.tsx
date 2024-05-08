@@ -1,7 +1,7 @@
 import React,{ FormEvent, FormHTMLAttributes, RefObject, useRef, } from 'react'
 import './index.scss'
 
-export interface IForm extends FormHTMLAttributes<HTMLFormElement> {
+interface IForm extends FormHTMLAttributes<HTMLFormElement> {
    onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 

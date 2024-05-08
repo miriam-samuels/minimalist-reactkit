@@ -10,7 +10,7 @@ export * from "./components/form/index";
 export * from "./components/inputfield/index";
 export * from "./components/modal/index";
 // export * from "./components/picker/index";
-// export * from "./components/pill/index";
+export * from "./components/pill/index";
 // export * from "./components/progress/index";
 // export * from "./components/range/index";
 export * from "./components/select/index";

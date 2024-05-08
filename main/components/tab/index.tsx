@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './index.scss'
 
 // PLEASE ENSURE THAT THE INDEX OF HEAD MATCHES THE INDEX OF ITS BODY
-export interface TabProps {
+interface TabProps {
    head: React.ReactNode[];
    body: React.ReactNode[];
    className?: string;
