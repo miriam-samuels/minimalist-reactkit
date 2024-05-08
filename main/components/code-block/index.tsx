@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import React,{ ReactNode, useState } from 'react'
 import './index.scss'
 function CodeBlock({ children }: { children: ReactNode }) {
    const [isCopied, setIsCopied] = useState(false)

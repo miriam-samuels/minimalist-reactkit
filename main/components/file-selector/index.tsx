@@ -1,7 +1,7 @@
-
+import React from 'react';
 import { useRef, useState } from 'react'
-import { BtnPrimary, BtnSecondary } from '../button';
 import './index.scss'
+import { BtnPrimary, BtnSecondary } from '../../index';
 
 interface FileProps {
    defaultVal?: string;

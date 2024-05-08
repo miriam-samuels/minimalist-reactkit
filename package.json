@@ -1,6 +1,6 @@
 {
   "name": "minimalist-reactkit",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Lightweight, flexible and highly customizable reusable components for React-devs designed for easy integration into your projects, providing a clean and modern aesthetic.",
   "main": "dist/index.js",
   "type": "module",
@@ -51,7 +51,9 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-typescript": "^11.1.5",
-    "react": "^18.2.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
     "rollup": "^2.79.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -61,6 +63,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "react-dom": "^18.3.1",
     "tslib": "^2.6.2"
   }
 }

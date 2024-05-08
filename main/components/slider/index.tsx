@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import React,{ ReactNode, useEffect, useRef, useState } from 'react'
 import './index.scss'
 
 type Props = {
