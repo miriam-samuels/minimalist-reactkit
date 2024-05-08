@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.scss'
 
-function Card({ children, heading, className }: { children: React.ReactNode; heading?:string, className?:string }) {
+export function Card({ children, heading, className }: { children: React.ReactNode; heading?:string, className?:string }) {
   return (
     <div id='card' className={`${className && className}`}>
       <div className='card'>
@@ -11,5 +11,3 @@ function Card({ children, heading, className }: { children: React.ReactNode; hea
     </div>
   )
 }
-
-export default Card

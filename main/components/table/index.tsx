@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './index.scss'
-interface TableProps {
+export interface TableProps {
    head?: React.ReactNode[];
    body: any[];
    accessor?: string[];
@@ -16,7 +16,7 @@ interface TableProps {
 
 type SortOrder = 'asc' | 'desc';
 
-function Table({ head, body, itemsPerPage = 7, showFilter = true, className, isLoading,  style, isRow, accessor, Row, rowProps }: TableProps) {
+export function Table({ head, body, itemsPerPage = 7, showFilter = true, className, isLoading,  style, isRow, accessor, Row, rowProps }: TableProps) {
    const [sortedData, setSortedData] = useState(body)
    const [sortConfig, setSortConfig] = useState<{ accessor: keyof any; direction: SortOrder }>({
       accessor: 'marketCap', // default sort by id
@@ -214,5 +214,3 @@ function Table({ head, body, itemsPerPage = 7, showFilter = true, className, isL
       </div>
    )
 }
-
-export default Table

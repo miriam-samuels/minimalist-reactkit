@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import './index.scss'
 
 // PLEASE ENSURE THAT THE INDEX OF HEAD MATCHES THE INDEX OF ITS BODY
-interface TabProps {
+export interface TabProps {
    head: React.ReactNode[];
    body: React.ReactNode[];
    className?: string;
    setCurrent?: (idx: number) => void
 }
-function Tab({ head, body, className, setCurrent }: TabProps) {
+export function Tab({ head, body, className, setCurrent }: TabProps) {
    const [tab, setTab] = useState(0)
 
    const handleTab = (idx: number) => {
@@ -37,5 +37,3 @@ function Tab({ head, body, className, setCurrent }: TabProps) {
       </div>
    )
 }
-
-export default Tab

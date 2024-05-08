@@ -11,7 +11,7 @@ export interface ModalProps {
 	className?: string;
 	hide: () => void;
 };
-function Modal(props: ModalProps) {
+export function Modal(props: ModalProps) {
 	const { heading, sub, children, className, show, hide } = props;
 	const ref = useClose(hide);
 	if (show) {
@@ -35,5 +35,3 @@ function Modal(props: ModalProps) {
 	}
 }
 
-
-export default Modal

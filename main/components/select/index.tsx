@@ -2,7 +2,7 @@ import React,{ useState } from 'react'
 import useClose from '../../hooks/useClose'
 import './index.scss'
 
-interface Props {
+export interface SelectProps {
    idx?: number
    name: string;
    label?: string;
@@ -14,9 +14,9 @@ interface Props {
    handleChange: (value: string, name: string, idx?: number) => void;
 }
 
-type Option = { label: any; value: any; disabled?: boolean; }
+export type Option = { label: any; value: any; disabled?: boolean; }
 
-function Select(props: Props) {
+export function Select(props: SelectProps) {
    const { idx, label, name, options, defaultValue, className, isSearchable, placeholder, handleChange: change } = props;
    const [isOpen, setIsOpen] = useState<boolean>(false);
    const [value, setValue] = useState<Option | undefined>(defaultValue);
@@ -78,4 +78,3 @@ function Select(props: Props) {
    )
 }
 
-export default Select

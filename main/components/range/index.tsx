@@ -2,12 +2,12 @@ import React from 'react'
 import './index.scss'
 
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
    disabled?: boolean;
    label?: string;
    name?: string;
 }
-const DoubleRange: React.FC<Props> = ({ className = '', label, name, min = 0, max = 100, defaultValue = 25, ...props }) => {
+export const DoubleRange: React.FC<Props> = ({ className = '', label, name, min = 0, max = 100, defaultValue = 25, ...props }) => {
    return (
       <div id='range'>
          <div className='range'>
@@ -43,5 +43,3 @@ const DoubleRange: React.FC<Props> = ({ className = '', label, name, min = 0, ma
       </div>
    )
 }
-
-export default DoubleRange

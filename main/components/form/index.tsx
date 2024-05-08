@@ -5,7 +5,7 @@ interface IForm extends FormHTMLAttributes<HTMLFormElement> {
    onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
-function Form(props: IForm) {
+export function Form(props: IForm) {
    const formRef: RefObject<HTMLFormElement> = useRef(null)
    const { onSubmit: handleSubmit, children } = props
 
@@ -79,5 +79,3 @@ function Form(props: IForm) {
       </form>
    )
 }
-
-export default Form

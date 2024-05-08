@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './index.scss'
 
-interface InputProps extends React.InputHTMLAttributes<any> {
+export interface InputProps extends React.InputHTMLAttributes<any> {
 	label?: string;
 	className?: string;
 	warning?: string;
@@ -107,4 +107,3 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 	);
 };
 
-export default InputField
