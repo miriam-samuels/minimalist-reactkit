@@ -1,0 +1,23 @@
+
+
+#mtk-form {
+    & .input-error {
+        color: red !important;
+        font-weight: 300;
+        width: 100%;
+        word-wrap: break-word;
+        line-height: 1.6rem;
+        text-align: left;
+        margin-top: 3px;
+    }
+
+    & .select{
+        & .input-error {
+            bottom: -25%;
+        }
+    }
+
+    & input.invalid{
+        border: 1px solid red !important;
+    }
+}

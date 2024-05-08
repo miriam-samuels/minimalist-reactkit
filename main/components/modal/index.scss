@@ -11,7 +11,7 @@
     display: block;
     position: relative;
     gap: 2rem;
-    border-radius: 1.5rem;
+    border-radius: 0.8rem;
     z-index: 1;
     text-align: center;
     overflow-y: auto;
@@ -89,6 +89,16 @@
         }
     }
 
-
+    & .cancel-btn{
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        color: gray;
+        font-weight: 300;
+        outline: 0px;
+    }
 
 }

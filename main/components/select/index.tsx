@@ -25,6 +25,7 @@ function Select(props: Props) {
 
    const toggleSelect = () => setIsOpen(!isOpen);
 
+
    const setOption = (option: Option) => {
       setValue(option);
       change(option.value, name, idx);
@@ -32,8 +33,10 @@ function Select(props: Props) {
    };
 
    const handleSearch = (e: any) => {
-      const val = e.target.value
-      setFilteredOptions(options?.filter((op: Option) => op.label.toLowerCase().includes(val?.toLowerCase())))
+      const val = e.target.value;
+      setValue({ label: val, value: val })
+      setFilteredOptions(options?.filter((op: Option) => op.label.toLowerCase().includes(val?.toLowerCase())));
+      if (!isOpen) setIsOpen(true)
    }
    return (
       <div ref={ref} id='select'>
@@ -41,7 +44,8 @@ function Select(props: Props) {
             <div className='select-input' onClick={toggleSelect}>
                {label && <label className='select-input_label'>{label}</label>}
                <div className='select-input_field'>
-                  <input type="text" className={className} defaultValue={value?.label} placeholder={placeholder} readOnly={!isSearchable} onChange={handleSearch} />
+						
+                  <input type="text" className={className} defaultValue={value?.label} placeholder={placeholder} readOnly={!isSearchable} onChange={handleSearch} data-mtk-input={true} />
                   <span>
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

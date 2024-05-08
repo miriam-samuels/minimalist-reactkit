@@ -70,6 +70,7 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 						style={showWarning ? { borderColor: "#d92d20" } : {}}
 						disabled={disabled}
 						id={id}
+						data-mtk-input={true}
 						{...rest}
 					/>
 				) : (
@@ -85,6 +86,7 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 						minLength={minLength}
 						defaultValue={defaultValue}
 						style={showWarning ? { borderColor: "#d92d20" } : {}}
+						data-mtk-input={true}
 						{...rest}
 					/>
 				)}
