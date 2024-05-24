@@ -3,8 +3,6 @@ import './styles/index.scss'
 export * from "./components/accordion/index";
 export * from "./components/alert/index";
 export * from "./components/button/index";
-// export * from "./components/card/index";
-// export * from "./components/file-selector/index";
 export * from "./components/form/index";
 export * from "./components/inputfield/index";
 export * from "./components/modal/index";
