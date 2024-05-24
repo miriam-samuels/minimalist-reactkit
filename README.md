@@ -77,7 +77,7 @@ const TableRow = ({data}:any) => { // data is passed by default
 }
 
 ```
-![My Logo](image.png 'Table Image')
+![Table Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/8a081195197c12dadfea90498244b98e2ea587ad/image.png?raw=true)
 
 ## Documentation
 
