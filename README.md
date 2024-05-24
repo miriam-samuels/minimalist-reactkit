@@ -9,10 +9,12 @@ Check the [documentation](https://minimalist-reactkit.web.app/) to get you start
 ## Installation
 
 ```
-$ npm i minimalist-reactkit
-$ yarn add minimalist-reactkit
+npm i minimalist-reactkit
 ```
 
+```
+yarn add minimalist-reactkit
+```
 ## How To Use
 
 ```jsx
@@ -92,3 +94,4 @@ interface TableProps {
    isLoading?: boolean
 }
 ```
+
