@@ -39,16 +39,16 @@ yarn add minimalist-reactkit
   import 'minimalist-reactkit/index.css';
 
   const tableData = [
-   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-   { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', action: <a>View</a> },
+   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', action: <a>View</a> },
+   { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', action: <a>View</a> },
   ]
 ```
 ## USAGE 1
 ```jsx
   <Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Action']}
+   accessor={['name', 'status', 'flightId', 'trip', '']} // if sortable column is needed
    body={tableData}
   />
 
@@ -56,8 +56,8 @@ yarn add minimalist-reactkit
 ## USAGE 2
 ```jsx
   <Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Action']}
+   accessor={['name', 'status', 'flightId', 'trip', '']}
    body={tableData}
    isRow = {true}
    Row={TableRow}
@@ -71,27 +71,14 @@ const TableRow = ({data}:any) => { // data is passed by default
          <td>{data.status}</td>
          <td>{data.flightId}</td>
          <td>{data.trip}</td>
-         <td>{data.date}</td>
-         <td>{data.officer}</td>
          <td>{data.action}</td>
       </tr>
    )
 }
 
 ```
-```jsx
-interface TableProps {
-   head?: React.ReactNode[];
-   body: any[];
-   accessor?: string[]; // for table header sorting
-   itemsPerPage?: number;
-   className?: string
-   showFilter?: boolean;
-   style?: any
-   isRow?: boolean
-   Row?: any
-   rowProps?: any,
-   isLoading?: boolean
-}
-```
+![Table Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/8a081195197c12dadfea90498244b98e2ea587ad/image.png?raw=true)
 
+## Documentation
+
+Check the [documentation](https://minimalist-reactkit.web.app/) to get you started!
