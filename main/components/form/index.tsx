@@ -1,50 +1,51 @@
-import React,{ FormEvent, FormHTMLAttributes, RefObject, useRef, } from 'react'
+import React, { FormEvent, FormHTMLAttributes, RefObject, useRef, } from 'react'
 import './index.scss'
 
 interface IForm extends FormHTMLAttributes<HTMLFormElement> {
    onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const telRegex = /^[0-9 +]{7,}$/;
+
 export function Form(props: IForm) {
    const formRef: RefObject<HTMLFormElement> = useRef(null)
    const { onSubmit: handleSubmit, children } = props
 
-   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
    let errorMessage = 'This field is required; '
 
    const displayError = (el: HTMLInputElement, message: string) => {
       el.classList.add('invalid')
       if (!el.nextElementSibling?.classList.contains('input-error')) {
          const errorElem = document.createElement('span')
-         errorElem.textContent = message || el.getAttribute('warning')
+         errorElem.textContent = el.getAttribute('data-warning') || message
          errorElem.className = 'input-error'
          el.insertAdjacentElement('afterend', errorElem)
-      } else {
-         el.nextElementSibling.textContent = message || el.getAttribute('warning')
       }
+      else el.nextElementSibling.textContent = el.getAttribute('data-warning') || message
    }
 
    const removeError = (el: HTMLInputElement) => {
-      el.addEventListener('change', () => {
+      el.addEventListener('input', () => {
          el.classList.remove('invalid')
-         if (el.nextElementSibling?.classList.contains('input-error')) {
-            el.nextElementSibling.remove()
-         }
+
+         if (el.nextElementSibling?.classList.contains('input-error')) el.nextElementSibling.remove()
+
+         if (el.getAttribute('type') === 'radio') validateInput() // this allows to clear the error when a radio button is selected
       })
    }
 
    const validateInput = () => {
       let invalidForm = false
       const formElements = formRef.current?.querySelectorAll('[data-mtk-input]')
-      console.log(formElements);
 
       if (formElements) {
          Array.from(formElements).forEach((el) => {
-            if (el.getAttribute('required') != null && (el as HTMLInputElement).value === '' || (el as HTMLInputElement).value === null) {
 
+            // check if input is empty
+            if (el.getAttribute('required') != null && (el as HTMLInputElement).value === '' || (el as HTMLInputElement).value === null) {
                invalidForm = true;
                displayError(el as HTMLInputElement, errorMessage)
-
             } else if ((el as HTMLInputElement).value !== '' || (el as HTMLInputElement).value !== null) { // form is filled
 
                // check if email is valid
@@ -52,7 +53,21 @@ export function Form(props: IForm) {
                   invalidForm = true;
                   displayError(el as HTMLInputElement, 'Invalid Email')
                }
+               // check for radio inputs
+               else if (el.getAttribute('type') === 'radio') {
+                  const radioGroup = formRef.current?.querySelectorAll(`[name="${el.getAttribute('name')}"]`)
 
+                  if (radioGroup && !Array.from(radioGroup)?.find((radio) => (radio as HTMLInputElement).checked)) {
+                     invalidForm = true;
+                     el.classList.add('invalid')
+                  } else el.classList.remove('invalid')
+               }
+
+               // check for tel inputs
+               else if (el.getAttribute('type') === 'tel' && (el as HTMLInputElement).value.match(telRegex) === null) {
+                  invalidForm = true;
+                  displayError(el as HTMLInputElement, 'Invalid Phone Number')
+               }
             }
 
             removeError(el as HTMLInputElement)
@@ -60,6 +75,7 @@ export function Form(props: IForm) {
       }
       return invalidForm
    };
+
 
    const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()

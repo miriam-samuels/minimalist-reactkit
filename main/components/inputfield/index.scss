@@ -72,6 +72,33 @@
          top: 55%;
          transform: translate(-50%, -50%);
       }
+
+      & .otp-input {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 20px 0;
+
+         & .input-error, .input-warning{
+            display: none !important;
+         }
+      }
+
+      & .otp-input-field {
+         width: 40px;
+         height: 40px;
+         margin: 0 5px;
+         text-align: center;
+         font-size: 18px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         outline: none;
+         transition: border-color 0.3s ease;
+      }
+
+      & .otp-input-field:focus {
+         border-color: #007bff;
+      }
    }
 }
 

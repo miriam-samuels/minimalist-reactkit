@@ -21,7 +21,7 @@ yarn add minimalist-reactkit
   import React from 'react';
 
   import { BtnPrimary } from 'minimalist-reactkit';
-  import 'minimalist-reactkit/index.css';
+  import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
 
@@ -79,6 +79,28 @@ const TableRow = ({data}:any) => { // data is passed by default
 ```
 ![Table Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/8a081195197c12dadfea90498244b98e2ea587ad/image.png?raw=true)
 
+## Check Out Our OTP Input
+```jsx
+  import {OTPInput} from 'minimalist-reactkit';
+  import 'minimalist-reactkit/index.css';
+
+  const [otp, setOtp] = useState<string>('');
+
+  const handleChange = (otp: string) => {
+    setOtp(otp);
+  };
+  // by default it gives 6 otp inputs
+  <OTPInput num={8} getOTP={handleChange}/>
+
+```
+## Add Validation (Works for all forms)
+```jsx
+  import {OTPInput, Form} from 'minimalist-reactkit';
+
+      <Form onSubmit={...}>
+        <OTPInput num={8}/>
+      </Form>
+```
 ## Documentation
 
 Check the [documentation](https://minimalist-reactkit.web.app/) to get you started!

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import './index.scss'
 
 export interface InputProps extends React.InputHTMLAttributes<any> {
@@ -95,7 +95,7 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 						{
 							isPasswordVisible ?
 								<span className='p-icon'>Hide</span> :
-								<span className='p-icon'>Show</span> 
+								<span className='p-icon'>Show</span>
 						}
 					</button>
 				)}
@@ -107,3 +107,110 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 	);
 };
 
+
+export interface OTPInputProps extends React.InputHTMLAttributes<any> {
+	num?: number;
+	getOTP?: (otp: string) => void;
+	label?: string;
+	className?: string;
+	warning?: string;
+	showWarning?: boolean;
+	onChange?:
+	| React.ChangeEventHandler<HTMLInputElement>
+	| React.ChangeEventHandler<HTMLTextAreaElement>
+	| any;
+	as?: "textarea";
+	rows?: number;
+	required?: boolean;
+}
+export const OTPInput: React.FC<OTPInputProps> = ({ ...props }) => {
+	const {
+		getOTP,
+		num = 6,
+		label,
+		name,
+		className,
+		placeholder,
+		type,
+		warning,
+		required = false,
+		minLength,
+		showWarning,
+		defaultValue,
+		as,
+		rows,
+		disabled,
+		id,
+		onChange,
+		...rest
+	} = props;
+	const [otp, setOtp] = useState(new Array(num).fill(''));
+
+
+
+	const handleChange = (element: any, index: number) => {
+		if (isNaN(element.value)) return false; // Allow only numbers
+		const newOtp = [...otp];
+		newOtp[index] = element.value;
+		setOtp(newOtp);
+
+		// Focus next input
+		if (element.nextSibling && element.value) {
+			element.nextSibling.focus();
+		}
+
+		//  return otp
+		getOTP(otp.join(''));
+	};
+
+	const handleBackspace = (element: any, index: number) => {
+		if (element.previousSibling) {
+			const newOtp = [...otp];
+			newOtp[index] = '';
+			setOtp(newOtp);
+			element.previousSibling.focus();
+
+			//  return otp
+			getOTP(otp.join(''));
+		}
+	};
+
+
+	return (
+		<div className="input-group">
+			{label && (
+				<label
+					className={`input-label ${disabled && "disabled"}`}
+					htmlFor={name}>
+					{label}
+					&nbsp;
+					{required === true ? (
+						<span className="input-field--required">*</span>
+					) : (
+						<span className="input-field--optional">(optional)</span>
+					)}
+				</label>
+			)}
+			<div className="input">
+				<div className="otp-input">
+					{otp.map((data, index) => (
+						<input
+							className="otp-input-field"
+							type="text"
+							name="otp"
+							maxLength={1}
+							key={index}
+							value={data}
+							onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e.target, index)}
+							onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+								e.key === 'Backspace' && handleBackspace(e.currentTarget, index)
+							}
+							data-mtk-input
+							required
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	)
+}
