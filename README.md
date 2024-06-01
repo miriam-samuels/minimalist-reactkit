@@ -101,6 +101,9 @@ const TableRow = ({data}:any) => { // data is passed by default
         <OTPInput num={8}/>
       </Form>
 ```
+
+![OTP Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/docs/public/otp.png?raw=true)
+
 ## Documentation
 
 Check the [documentation](https://minimalist-reactkit.web.app/) to get you started!
