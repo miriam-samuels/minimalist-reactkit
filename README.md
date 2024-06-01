@@ -26,5 +26,26 @@ $ yarn add minimalist-reactkit
     );
   }
 ```
+## Check Out Our OTP Input
+```jsx
+  import {OTPInput} from 'minimalist-reactkit';
+  import 'minimalist-reactkit/index.css';
 
+  const [otp, setOtp] = useState<string>('');
+
+  const handleChange = (otp: string) => {
+    setOtp(otp);
+  };
+  // by default it gives 6 otp inputs
+  <OTPInput num={8} getOTP={handleChange}/>
+
+```
+## Add Validation (Works for all forms)
+```jsx
+  import {OTPInput, Form} from 'minimalist-reactkit';
+
+      <Form onSubmit={...}>
+        <OTPInput num={8}/>
+      </Form>
+```
 ## Documentation
