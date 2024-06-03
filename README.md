@@ -20,7 +20,7 @@ yarn add minimalist-reactkit
 ```jsx
   import React from 'react';
 
-  import { BtnPrimary } from 'minimalist-reactkit';
+  import { Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
   import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
