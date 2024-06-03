@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import useClose from '../../hooks/useClose'
 import './index.scss'
 
@@ -30,12 +30,20 @@ export function Select(props: SelectProps) {
       setValue(option);
       change(option.value, name, idx);
       setIsOpen(false);
+
+      // validation remove
+      const el: any = ref.current?.querySelector('[data-mtk-input]')
+
+      el.classList.remove('invalid')
+
+      if (el.nextElementSibling?.classList.contains('input-error')) el.nextElementSibling.remove()
    };
 
    const handleSearch = (e: any) => {
-      const val = e.target.value;
-      setValue({ label: val, value: val })
-      setFilteredOptions(options?.filter((op: Option) => op.label.toLowerCase().includes(val?.toLowerCase())));
+      const val = { label: e.target.value, value: e.target.value }
+      setValue(val)
+      change(val.value, name, idx);
+      setFilteredOptions(options?.filter((op: Option) => op.label.toLowerCase().includes(e.target.value?.toLowerCase())));
       if (!isOpen) setIsOpen(true)
    }
    return (
@@ -44,10 +52,10 @@ export function Select(props: SelectProps) {
             <div className='select-input' onClick={toggleSelect}>
                {label && <label className='select-input_label'>{label}</label>}
                <div className='select-input_field'>
-						
+
                   <input type="text" className={className} defaultValue={value?.label} placeholder={placeholder} readOnly={!isSearchable} onChange={handleSearch} data-mtk-input={true} />
                   <span>
-                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z"></path></svg>
+                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z"></path></svg>
                   </span>
                </div>
             </div>

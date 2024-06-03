@@ -26,13 +26,11 @@ export function Form(props: IForm) {
    }
 
    const removeError = (el: HTMLInputElement) => {
-      el.addEventListener('input', () => {
-         el.classList.remove('invalid')
+      el.classList.remove('invalid')
 
-         if (el.nextElementSibling?.classList.contains('input-error')) el.nextElementSibling.remove()
+      if (el.nextElementSibling?.classList.contains('input-error')) el.nextElementSibling.remove()
 
-         if (el.getAttribute('type') === 'radio') validateInput() // this allows to clear the error when a radio button is selected
-      })
+      if (el.getAttribute('type') === 'radio') validateInput() // this allows to clear the error when a radio button is selected
    }
 
    const validateInput = () => {
@@ -68,9 +66,16 @@ export function Form(props: IForm) {
                   invalidForm = true;
                   displayError(el as HTMLInputElement, 'Invalid Phone Number')
                }
+
+               else {
+                  removeError(el as HTMLInputElement)
+               }
             }
 
-            removeError(el as HTMLInputElement)
+            //  on input change remove error 
+            el.addEventListener('input', () => {
+               removeError(el as HTMLInputElement)
+            })
          });
       }
       return invalidForm
