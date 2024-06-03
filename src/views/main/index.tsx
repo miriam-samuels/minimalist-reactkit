@@ -1,19 +1,9 @@
 
 
 import { useState } from "react";
-import Accordion from "../../components/accordion";
-import Alert from "../../components/alert";
 import CodeBlock from "../../components/code-block";
 import { accordionItems } from "../../variables";
-import { BtnPrimary, BtnSecondary } from "../../components/button";
-import InputField from "../../components/inputfield";
-import Modal from "../../components/modal";
-import Select from "../../components/select";
-import Toggle from "../../components/toggle";
-import Tab from "../../components/tab";
-import Table from "../../components/table";
-import Pill from "../../components/pill";
-import Form from "../../components/form";
+import {Pill, BtnPrimary,BtnSecondary,Accordion, InputField, Alert, Form, Modal, Tab, Table, Toggle, Select} from "minimalist-reactkit";
 
 function Main() {
    const [showAlert, setShowAlert] = useState(false);
