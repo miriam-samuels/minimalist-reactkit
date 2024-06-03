@@ -23,6 +23,7 @@ function Sidebar() {
             <li><a href="#form"> Form </a></li>
             <li><a href="#inputField"> Input Field </a></li>
             <li><a href="#modal"> Modal </a></li>
+            <li><a href="#otp"> OTP Input </a></li>
             {/* <li><a href="#picker"> Picker </a></li> */}
             {/* <li><a href="#pill"> Pill </a></li> */}
             {/* <li><a href="#progress"> Progress </a></li> */}

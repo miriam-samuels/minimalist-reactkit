@@ -1,6 +1,6 @@
 
 import { useRef, useState } from 'react'
-import { BtnPrimary, BtnSecondary } from '../button';
+import { BtnPrimary, BtnSecondary } from 'minimalist-reactkit';
 import './index.scss'
 
 interface FileProps {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CodeBlock from "../../components/code-block";
 import { accordionItems } from "../../variables";
-import {Pill, BtnPrimary,BtnSecondary,Accordion, InputField, Alert, Form, Modal, Tab, Table, Toggle, Select} from "minimalist-reactkit";
+import { Pill, BtnPrimary, BtnSecondary, Accordion, InputField, Alert, Form, Modal, Tab, Table, Toggle, Select, OTPInput } from "minimalist-reactkit";
 
 function Main() {
    const [showAlert, setShowAlert] = useState(false);
@@ -245,7 +245,7 @@ FormHTMLAttributes<HTMLFormElement>
                      <InputField
                         label="Name"
                         required
-                     /> <br/>
+                     /> <br />
                      <BtnSecondary className="btn-success" type="submit">Submit</BtnSecondary>
                   </Form>
                </div>
@@ -339,7 +339,43 @@ interface ModalProps {
                   </Modal>
                </div>
             </div>
-            <div className="card grid-margin" id="select">
+            <div className="card grid-margin" id="otp">
+               <div className="card-body">
+                  <h3 className="mb-4">OTP Input</h3>
+                  <CodeBlock>
+                     {`
+  import {OTPInput} from 'minimalist-reactkit';
+  import 'minimalist-reactkit/index.css';
+
+  const [otp, setOtp] = useState<string>('');
+
+  const handleChange = (otp: string) => {
+    setOtp(otp);
+  };
+
+  <Form onSubmit={...}> // the form tag is for validation
+        <OTPInput num={8} getOTP={handleChange}/>  // by default it gives 6 otp inputs
+   </Form>
+`}
+                  </CodeBlock>
+
+                  <h3 className="mb-4">Types</h3>
+                  <CodeBlock>
+                     {`
+interface OTPInputProps {
+	num?: number;
+   getOTP:(otp:string) => void
+};
+`}
+                  </CodeBlock>
+                  <h3 className="mb-4">Preview</h3>
+                  <Form onSubmit={(e) => { e.preventDefault() }}>
+                     <OTPInput num={8} />
+                     <BtnPrimary >Submit</BtnPrimary>
+                  </Form>
+               </div>
+            </div>
+            <div className="card grid-margin" id="search-select">
                <div className="card-body">
                   <h3 className="mb-4">Select</h3>
                   <CodeBlock>
