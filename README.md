@@ -18,17 +18,35 @@ yarn add minimalist-reactkit
 ## How To Use
 
 ```jsx
-  import React from 'react';
-
-  import { Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
+  import React, {useState} from 'react';
+  import { Form, Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
   import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
 
+    const [car, setCar] = useState({label:"Honda", value:"hda"})
+
+    const carOptions = [
+      {label:"Honda", value:"hda"},
+      { label:<span>Toyota</span>, value: "tyt" } // you can also use jsx as label and style as see fit
+    ]
+
+    const handleSelectChange = (selected: any, name: string) => {
+      setCar(selected)
+    }
+
     return (
-      <div>
-        <BtnPrimary>Click Me</BtnPrimary>
-      </div>
+      <Form>
+       <Select
+         name="car"
+         label="Select Car Choice"
+         isSearchable={true}
+         defaultValue={car}
+         options={carOptions}
+         handleChange={handleSelectChange}
+        />
+        <BtnPrimary>Submit Car</BtnPrimary>
+      </Form>
     );
   }
 ```
