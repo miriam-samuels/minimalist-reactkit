@@ -18,17 +18,35 @@ yarn add minimalist-reactkit
 ## How To Use
 
 ```jsx
-  import React from 'react';
-
-  import { BtnPrimary } from 'minimalist-reactkit';
-  import 'minimalist-reactkit/index.css';
+  import React, {useState} from 'react';
+  import { Form, Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
+  import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
 
+    const [car, setCar] = useState({label:"Honda", value:"hda"})
+
+    const carOptions = [
+      {label:"Honda", value:"hda"},
+      { label:<span>Toyota</span>, value: "tyt" } // you can also use jsx as label and style as see fit
+    ]
+
+    const handleSelectChange = (selected: any, name: string) => {
+      setCar(selected)
+    }
+
     return (
-      <div>
-        <BtnPrimary>Click Me</BtnPrimary>
-      </div>
+      <Form>
+       <Select
+         name="car"
+         label="Select Car Choice"
+         isSearchable={true}
+         defaultValue={car}
+         options={carOptions}
+         handleChange={handleSelectChange}
+        />
+        <BtnPrimary>Submit Car</BtnPrimary>
+      </Form>
     );
   }
 ```
@@ -78,6 +96,31 @@ const TableRow = ({data}:any) => { // data is passed by default
 
 ```
 ![Table Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/8a081195197c12dadfea90498244b98e2ea587ad/image.png?raw=true)
+
+## Check Out Our OTP Input
+```jsx
+  import {OTPInput} from 'minimalist-reactkit';
+  import 'minimalist-reactkit/index.css';
+
+  const [otp, setOtp] = useState<string>('');
+
+  const handleChange = (otp: string) => {
+    setOtp(otp);
+  };
+  // by default it gives 6 otp inputs
+  <OTPInput num={8} getOTP={handleChange}/>
+
+```
+## Add Validation (Works for all forms)
+```jsx
+  import {OTPInput, Form} from 'minimalist-reactkit';
+
+      <Form onSubmit={...}>
+        <OTPInput num={8}/>
+      </Form>
+```
+
+![OTP Image](https://github.com/miriam-samuels/minimalist-reactkit/blob/docs/public/otp.png?raw=true)
 
 ## Documentation
 

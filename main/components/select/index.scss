@@ -22,7 +22,7 @@
             width: 100%;
 
             & input {
-   background-color: #ffffffcc;
+               background-color: #ffffffcc;
 
                width: 100%;
                display: block;
@@ -39,6 +39,8 @@
 
             & span {
                color: var(--color-gray-300);
+               position: absolute;
+               right: 5%;
             }
          }
       }
