@@ -1,4 +1,4 @@
-# Minimlist Reactkit 
+# Minimalist Reactkit 
 
 🎉 Minimalist Reactkit provides you with easily restyable components
 
@@ -38,7 +38,7 @@ yarn add minimalist-reactkit
 ## Check out Our Select Component
 ```jsx
   import React, {useState} from 'react';
-  import { Form, Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
+  import {  Select } from 'minimalist-reactkit'; // flexible react select 
   import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
@@ -55,7 +55,6 @@ yarn add minimalist-reactkit
     }
 
     return (
-      <Form>
        <Select
          name="car"
          label="Select Car Choice"
@@ -64,8 +63,6 @@ yarn add minimalist-reactkit
          options={carOptions}
          handleChange={handleSelectChange}
         />
-        <BtnPrimary>Submit Car</BtnPrimary>
-      </Form>
     );
   }
 ```
