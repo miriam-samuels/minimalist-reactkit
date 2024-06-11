@@ -18,6 +18,25 @@ yarn add minimalist-reactkit
 ## How To Use
 
 ```jsx
+
+ import React from 'react';
+
+  import { BtnPrimary } from 'minimalist-reactkit';
+  import 'minimalist-reactkit/index.css'; // add to root file
+  
+  function App(){
+
+    return (
+      <div>
+        <BtnPrimary>Click Me</BtnPrimary>
+      </div>
+    );
+  }
+
+```
+
+## Check out Our Select Component
+```jsx
   import React, {useState} from 'react';
   import { Form, Select, BtnPrimary } from 'minimalist-reactkit'; // flexible react select 
   import 'minimalist-reactkit/index.css'; // add to root file

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react'
 import './index.scss'
 
 export interface InputProps extends React.InputHTMLAttributes<any> {
@@ -146,7 +146,9 @@ export const OTPInput: React.FC<OTPInputProps> = ({ ...props }) => {
 	} = props;
 	const [otp, setOtp] = useState(new Array(num).fill(''));
 
-
+	useEffect(() => {
+		getOTP(otp.join(''))
+	}, [otp])
 
 	const handleChange = (element: any, index: number) => {
 		if (isNaN(element.value)) return false; // Allow only numbers
