@@ -513,9 +513,9 @@ import {Table} from 'minimalist-reactkit';
    head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
    accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
    body={[
-      { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-      { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-      { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
+      { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+      { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+      { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
    ]}
 />
 `}
@@ -527,16 +527,14 @@ import {Table} from 'minimalist-reactkit';
                      {`
 import {Table} from 'minimalist-reactkit';
 
-const tableData = [
-   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-   { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-]
 
 <Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
-   body={tableData}
+   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer']}
+   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer']}
+   body={[
+   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+   ]}
    isRow = {true}
    Row={TableRow}
    rowProps={{ currentTime: '24h' }} // pass props to row component 
@@ -579,13 +577,21 @@ interface TableProps {
                   </CodeBlock>
                   <h3 className="mb-4">Preview </h3>
                   <Table
-                     head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
-                     accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
+                     head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer']}
+                     accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer']}
                      body={[
-                        { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-                        { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-                        { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth', action: <a>View</a> },
-                     ]}
+                        { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai (DXB) - Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                        { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'A2093845QR7', trip: 'New York (JFK) - Paris (CDG)', date: 'Sep 10, 2022, 14:00', officer: 'Sophia Wright' },
+                        { name: 'Joseph Tabina', status: <Pill text='Completed' className='success' />, flightId: 'B3021943KL5', trip: 'London (LHR) - Tokyo (HND)', date: 'Jul 15, 2022, 08:45', officer: 'Michael Brown' },
+                        { name: 'Alice Johnson', status: <Pill text='Cancelled' className='danger' />, flightId: 'C4019283MN8', trip: 'Los Angeles (LAX) - Sydney (SYD)', date: 'Jun 20, 2022, 22:15', officer: 'Emma Davis' },
+                        { name: 'David Smith', status: <Pill text='Ongoing' className='warning' />, flightId: 'T5048392BJ9', trip: 'Berlin (BER) - Rome (FCO)', date: 'Aug 18, 2022, 11:30', officer: 'James Ruth' },
+                        { name: 'Maria Lopez', status: <Pill text='Completed' className='success' />, flightId: 'D6023947OP3', trip: 'Toronto (YYZ) - Vancouver (YVR)', date: 'May 05, 2022, 16:00', officer: 'Sophia Wright' },
+                        { name: 'Samuel Okafor', status: <Pill text='Ongoing' className='warning' />, flightId: 'E7038492QR2', trip: 'Johannesburg (JNB) - Nairobi (NBO)', date: 'Oct 12, 2022, 09:15', officer: 'Michael Brown' },
+                        { name: 'Grace Lin', status: <Pill text='Cancelled' className='danger' />, flightId: 'F8049473TY5', trip: 'Singapore (SIN) - Kuala Lumpur (KUL)', date: 'Nov 03, 2022, 20:50', officer: 'Emma Davis' },
+                        { name: 'Ethan Green', status: <Pill text='Ongoing' className='warning' />, flightId: 'G9058392WN1', trip: 'Seoul (ICN) - Beijing (PEK)', date: 'Dec 25, 2022, 13:00', officer: 'James Ruth' },
+                        { name: 'Olivia Martinez', status: <Pill text='Completed' className='success' />, flightId: 'H1067384LM4', trip: 'Mumbai (BOM) - Delhi (DEL)', date: 'Jan 30, 2022, 18:30', officer: 'Sophia Wright' },
+                    ]}
+                    
                   />
                </div>
             </div>
