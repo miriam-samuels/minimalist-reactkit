@@ -1,0 +1,109 @@
+#table {
+   width: 100%;
+   overflow: auto;
+
+
+   & table {
+      width: 100%;
+      position: relative;
+      padding: 0 1.5em;
+      border-spacing: 0;
+      background-color: white;
+      color: #171717;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: var(--text-sm);
+
+      @media (max-width:1000px) {
+         min-width: 150rem;
+         font-size: var(--text-sm);
+      }
+
+      @media (max-width:500px) {
+         min-width: 100rem;
+         font-size: var(--text-sm);
+      }
+
+      & td,
+      th {
+         text-align: left;
+         background-color: white;
+         padding: 2em 1em;
+         border-spacing: 0;
+         font-weight: 300;
+      }
+
+      & th {
+         border-bottom: 1px solid #99999945;
+         font-weight: 500;
+      }
+   }
+
+   & .table {
+      &-search{
+         float: right;
+         & input{
+            background-color: rgb(255, 255, 255);
+            color:#171717 ;
+            min-width: 300px;
+            padding: 1em;
+            border: none;
+            border-radius: 5px;
+            margin: 1em 0;
+            box-shadow: 1px 1px 10px 1px rgba(204, 204, 204, 0.424);
+         }
+      }
+      &-pagination {
+         display: flex;
+         justify-content: flex-end;
+         gap: 10px;
+         margin: 3em 1.5em;
+
+         & button {
+            padding: 0.8em;
+            border: none;
+            border-radius: 3px;
+            &.active{
+               background-color: black;
+               color: whitesmoke;
+            }
+         }
+      }
+   }
+
+
+   &.stripped {
+      & table {
+         background-color: transparent;
+         border-spacing: 0em 1.5em;
+
+         & thead,
+         tbody {
+
+            & tr {
+               background-color: transparent !important;
+
+               & th {
+                  background-color: transparent !important;
+                  padding: 1em;
+
+
+               }
+
+               & td {
+                  padding: 1em;
+
+                  & .btn {
+                     padding: 0;
+                     height: 30px;
+                     width: 50px;
+                     font-size: var(--text-xs);
+                  }
+               }
+            }
+
+         }
+      }
+
+   }
+}

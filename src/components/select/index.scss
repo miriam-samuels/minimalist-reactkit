@@ -1,0 +1,99 @@
+#select {
+   & .select {
+      cursor: pointer;
+      box-sizing: border-box;
+
+      &-input {
+         &_label {
+            display: block;
+            font-weight: 600;
+            font-size: 12px;
+            margin: 0.7em 0;
+            text-align: left;
+
+            &.disabled {
+               color: var(--color-gray-100) !important;
+            }
+         }
+
+         &_field {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            & input {
+               background-color: #ffffffcc;
+
+               width: 100%;
+               display: block;
+               border: 1px solid var(--color-gray-light);
+               border-radius: 0.9rem;
+               padding: 0.9rem;
+               font-size: 16px;
+               color: black;
+
+               &:disabled {
+                  color: var(--color-gray-100) !important;
+               }
+            }
+
+            & span {
+               color: var(--color-gray-300);
+               position: absolute;
+               right: 5%;
+            }
+         }
+      }
+
+      &-list {
+         &_con {
+            position: relative;
+         }
+
+         width: 100%;
+         position: absolute;
+         z-index: 3;
+         height: auto;
+         max-height: 20rem;
+         flex-direction: column;
+         align-items: flex-start;
+         background-color: var(--color-background-200);
+         border-radius: .65rem;
+         overflow: hidden;
+         box-shadow: 0 .4rem 1rem rgba(grey, .1);
+         animation: Fade-in .2s ease-in-out;
+         overflow-y: auto;
+         box-sizing: border-box;
+         color: black;
+
+         &::-webkit-scrollbar {
+            width: 4px;
+            background-color: grey;
+         }
+
+         &::-webkit-scrollbar-thumb {
+            width: 4px;
+            background-color: black;
+         }
+
+         option,
+         &_item {
+            padding: 0.6rem;
+            display: block;
+            width: 100%;
+            position: relative;
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            cursor: pointer;
+            transition: .1s ease-in-out;
+            font-weight: 400;
+            background-color: white;
+
+            &:hover {
+               background-color: #e5e1eb;
+            }
+
+         }
+      }
+   }
+}

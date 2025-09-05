@@ -3,7 +3,9 @@
 import { useState } from "react";
 import CodeBlock from "../../components/code-block";
 import { accordionItems } from "../../variables";
-import { Pill, BtnPrimary, BtnSecondary, Accordion, InputField, Alert, Form, Modal, Tab, Table, Toggle, Select, OTPInput } from "minimalist-reactkit";
+import { Pill, BtnPrimary, BtnSecondary, Accordion, InputField, Alert, Form, Modal, Tab, Toggle, OTPInput } from "minimalist-reactkit";
+import { Table } from "../../components/table";
+import { Select } from "../../components/select";
 
 function Main() {
    const [showAlert, setShowAlert] = useState(false);
@@ -507,78 +509,101 @@ interface TabProps {
                   <h3 className="mb-4">Table</h3>
                   <CodeBlock>
                      {`
-import {Table} from 'minimalist-reactkit';
+               import {Table} from 'minimalist-reactkit';
 
-<Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer', '']}
-   body={[
-      { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
-      { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
-      { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
-   ]}
-/>
-`}
+               const headers = [
+                  { name: 'Applicant Name', accessor: 'name' },
+                  { name: 'Status', accessor: 'status' },
+                  { name: 'Booking Id', accessor: 'flightId' },
+                  { name: 'Destination', accessor: 'trip' },
+                  { name: 'Date Created', accessor: 'date' },
+                  { name: 'Officer', accessor: 'officer' },
+                  { name: 'Action', accessor: '' }
+               ];
+
+               <Table
+                  headers={headers}
+                  body={[
+                     { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                     { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                     { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                  ]}
+               />
+               `}
                   </CodeBlock>
 
                   <h3 className="mb-4">Table Usage 2</h3>
 
                   <CodeBlock>
                      {`
-import {Table} from 'minimalist-reactkit';
+               import {Table} from 'minimalist-reactkit';
 
+               const header = [
+                  { name: 'Applicant Name', accessor: 'name' },
+                  { name: 'Status', accessor: 'status' },
+                  { name: 'Booking Id', accessor: 'flightId' },
+                  { name: 'Destination', accessor: 'trip' },
+                  { name: 'Date Created', accessor: 'date' },
+                  { name: 'Officer', accessor: 'officer' }
+               ];
 
-<Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer']}
-   accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer']}
-   body={[
-   { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
-   { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
-   ]}
-   isRow = {true}
-   Row={TableRow}
-   rowProps={{ currentTime: '24h' }} // pass props to row component 
-/>
+               <Table
+                  header={header}
+                  body={[
+                     { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                     { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
+                  ]}
+                  isRow={true}
+                  Row={TableRow}
+                  rowProps={{ currentTime: '24h' }} // pass props to row component 
+               />
 
-const TableRow = ({data}:any) => { // data is passed by default
-   return(
-      <tr>
-         <td>{data.name}</td>
-         <td>{data.status}</td>
-         <td>{data.flightId}</td>
-         <td>{data.trip}</td>
-         <td>{data.date}</td>
-         <td>{data.officer}</td>
-         <td>{data.action}</td>
-      </tr>
-   )
-}
-`}
+               const TableRow = ({data}:any) => { // data is passed by default
+                  return(
+                     <tr>
+                        <td>{data.name}</td>
+                        <td>{data.status}</td>
+                        <td>{data.flightId}</td>
+                        <td>{data.trip}</td>
+                        <td>{data.date}</td>
+                        <td>{data.officer}</td>
+                        <td>{data.action}</td>
+                     </tr>
+                  )
+               }
+               `}
                   </CodeBlock>
 
                   <h3 className="mb-4">Types</h3>
                   <CodeBlock>
                      {`
-interface TableProps {
-   head?: React.ReactNode[];
-   body: any[];
-   accessor?: string[]; // for table header sorting
-   itemsPerPage?: number;
-   className?: string
-   showFilter?: boolean;
-   style?: any
-   isRow?: boolean
-   Row?: any
-   rowProps?: any,
-   isLoading?: boolean
-}
-
-`}
+               interface TableProps {
+                  header: { name: string; accessor: string }[];
+                  body: any[];
+                  itemsPerPage?: number;
+                  className?: string
+                  showFilter?: boolean;
+                  style?: any
+                  isRow?: boolean
+                  Row?: any
+                  rowProps?: any,
+                  isLoading?: boolean
+               }
+               `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview </h3>
+                  {/*
+                     Example usage with headers array
+                  */}
                   <Table
-                     head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Date Created', 'Officer']}
-                     accessor={['name', 'status', 'flightId', 'trip', 'date', 'officer']}
+                     header={[
+                        { name: 'Applicant Name', accessor: 'name' },
+                        { name: 'Status', accessor: 'status' },
+                        { name: 'Booking Id', accessor: 'flightId' },
+                        { name: 'Destination', accessor: 'trip' },
+                        { name: 'Date Created', accessor: 'date' },
+                        { name: 'Officer', accessor: 'officer' }
+                     ]}
                      body={[
                         { name: 'Godwin Emmanuel', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai (DXB) - Lagos (LOS)', date: 'Aug 05, 2022, 18:30', officer: 'James Ruth' },
                         { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'A2093845QR7', trip: 'New York (JFK) - Paris (CDG)', date: 'Sep 10, 2022, 14:00', officer: 'Sophia Wright' },
@@ -590,11 +615,9 @@ interface TableProps {
                         { name: 'Grace Lin', status: <Pill text='Cancelled' className='danger' />, flightId: 'F8049473TY5', trip: 'Singapore (SIN) - Kuala Lumpur (KUL)', date: 'Nov 03, 2022, 20:50', officer: 'Emma Davis' },
                         { name: 'Ethan Green', status: <Pill text='Ongoing' className='warning' />, flightId: 'G9058392WN1', trip: 'Seoul (ICN) - Beijing (PEK)', date: 'Dec 25, 2022, 13:00', officer: 'James Ruth' },
                         { name: 'Olivia Martinez', status: <Pill text='Completed' className='success' />, flightId: 'H1067384LM4', trip: 'Mumbai (BOM) - Delhi (DEL)', date: 'Jan 30, 2022, 18:30', officer: 'Sophia Wright' },
-                    ]}
-                    
+                     ]}
                   />
-               </div>
-            </div>
+               </div>  </div>
             <div className="card">
                <div className="card-body">
                   <h3 id="customerSupport" className="mb-4">
