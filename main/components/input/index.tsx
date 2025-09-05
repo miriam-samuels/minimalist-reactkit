@@ -144,7 +144,7 @@ export interface OTPInputProps extends React.InputHTMLAttributes<HTMLInputElemen
 }
 export const OTPInput: React.FC<OTPInputProps> = (props) => {
 	const {
-		getOTP,
+		getOTP = () => { },
 		num = 6,
 		label,
 		name,

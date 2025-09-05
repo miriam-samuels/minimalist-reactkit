@@ -10,10 +10,26 @@
    font-weight: 500;
    text-transform: capitalize;
 
-   &.success,
-   &.opened,
-   &.closed,
-   &.in_progress {
+   &.danger {
+      background-color: #FEE4E2 !important;
+      color: #B42318 !important;
+   }
+
+   &.secondary {
+      background-color: #F3F4F6 !important;
+      color: #4B5563 !important;
+   }
+
+   &.info {
+      background-color: #E0F2FE !important;
+      color: #075985 !important;
+   }
+
+   &.warning {
+      background-color: #FEF3C7 !important;
+      color: #92400E !important;
+   }
+   &.success{
       color: #1F6532 !important;
       background-color: #ECFDF3 !important;
    }
@@ -21,16 +37,6 @@
    &.pending {
       background-color: #FFF1F0 !important;
       color: #912018 !important;
-   }
-
-   &.awaiting_approval {
-      background-color: #FEF0C7 !important;
-      color: #B54708 !important;
-   }
-
-   &.gold{
-      background-color: #FEC84B !important;
-      color: #4D4D50 !important;
    }
 
    &.primary{

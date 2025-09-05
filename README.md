@@ -83,9 +83,17 @@ yarn add minimalist-reactkit
 ```
 ## USAGE 1
 ```jsx
+
   <Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', '']} // if sortable column is needed
+   head={[
+        { name: 'Applicant Name', accessor: 'name' },// add assesor if you want sortable columns
+        { name: 'Status', accessor: 'status' },
+        { name: 'Booking Id', accessor: 'flightId' },
+        { name: 'Destination', accessor: 'trip' },
+        { name: 'Date Created', accessor: 'date' },
+        { name: 'Officer', accessor: 'officer' },
+        { name: 'Action', accessor: '' }
+        ];}
    body={tableData}
   />
 
