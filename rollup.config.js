@@ -18,11 +18,13 @@ export default [
       ],
       external: [
          'react',
+         "react-dom"
      ],
       plugins: [
          resolve({
             extensions: [".js", ".jsx", ".ts", ".tsx"],
          }),
+         
          scss({
             output: "./dist/index.css",
             fileName: "index.css",
