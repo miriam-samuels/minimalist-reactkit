@@ -20,7 +20,7 @@ export const useForm = () => {
    return baseConsumer;
 };
 
-function Form(props: IForm) {
+export function Form(props: IForm) {
    const formRef = useRef<HTMLFormElement>(null);
 
    const { onSubmit: handleSubmit, children } = props;
@@ -134,4 +134,3 @@ function Form(props: IForm) {
    );
 }
 
-export default Form;
