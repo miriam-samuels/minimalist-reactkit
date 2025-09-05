@@ -1,6 +1,6 @@
-# Minimlist Reactkit 
+# Minimalist Reactkit 
 
-🎉 Minimalist Reactkit provides you with easily restyable components
+🎉 Minimalist Reactkit provides you with only the important easily restyable components. There are many other libraries that help you with the others
 
 ## Documentation
 
@@ -16,19 +16,25 @@ npm i minimalist-reactkit
 yarn add minimalist-reactkit
 ```
 ## How To Use
-
+Get validated inputs 
 ```jsx
 
  import React from 'react';
 
-  import { BtnPrimary } from 'minimalist-reactkit';
+  import { Form, Input } from 'minimalist-reactkit';
   import 'minimalist-reactkit/index.css'; // add to root file
   
   function App(){
 
+    const handleSubmit = () => {
+      // more code here
+    }
+
     return (
       <div>
-        <BtnPrimary>Click Me</BtnPrimary>
+      <Form onSubmit={handleSubmit}>
+        <Input required />
+      </Form>
       </div>
     );
   }
@@ -80,6 +86,10 @@ yarn add minimalist-reactkit
    { name: 'Clara Kaio', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', action: <a>View</a> },
    { name: 'Joseph Tabina', status: <Pill text='Ongoing' className='warning' />, flightId: 'T2089392BJ9', trip: 'Dubai  (DXB) -  Lagos (LOS)', action: <a>View</a> },
   ]
+
+  const handlePagination = (limit: number, page: number) => {
+    // api call 
+  };
 ```
 ## USAGE 1
 ```jsx
@@ -94,22 +104,32 @@ yarn add minimalist-reactkit
         { name: 'Officer', accessor: 'officer' },
         { name: 'Action', accessor: '' }
         ];}
+   refetch={handlePagination} // table also handles internal pagination for when api fetch not needed
    body={tableData}
   />
 
 ```
 ## USAGE 2
 ```jsx
+
   <Table
-   head={['Applicant Name', 'Status', 'Booking Id', 'Destination', 'Action']}
-   accessor={['name', 'status', 'flightId', 'trip', '']}
+     head={[
+        { name: 'Applicant Name', accessor: 'name' },// add assesor if you want sortable columns
+        { name: 'Status', accessor: 'status' },
+        { name: 'Booking Id', accessor: 'flightId' },
+        { name: 'Destination', accessor: 'trip' },
+        { name: 'Date Created', accessor: 'date' },
+        { name: 'Officer', accessor: 'officer' },
+        { name: 'Action', accessor: '' }
+        ];}
    body={tableData}
    isRow = {true}
    Row={TableRow}
-   rowProps={{ currentTime: '24h' }} // pass props to row component 
+   refetch={handlePagination} // table also handles internal pagination for when api fetch not needed
+   rowProps={{ currentTime: '24h' }} // pass more props to row component 
 />
 
-const TableRow = ({data}:any) => { // data is passed by default
+const TableRow = ({data, currentTime}) => { // data is passed by default
    return(
       <tr>
          <td>{data.name}</td>

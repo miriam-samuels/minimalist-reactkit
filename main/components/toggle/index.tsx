@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import './index.scss'
 
 
-export interface ToggleProps {
+export interface ToggleProps extends React.InputHTMLAttributes<HTMLInputElement> {
    checked: boolean;
    name: string;
    onChange: () => void
-   color?: string
 }
 
 export function Toggle(props: ToggleProps) {
@@ -14,7 +13,7 @@ export function Toggle(props: ToggleProps) {
    return (
       <div className='toggle-con'>
          <span className='toggle-btn'></span>
-         <input type="checkbox" className="toggle" checked={checked} onChange={onChange} name={name} />
+         <input  {...props} type="checkbox" className="toggle" checked={checked} onChange={onChange} name={name}/>
       </div>
    )
 }

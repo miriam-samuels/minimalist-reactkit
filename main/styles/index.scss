@@ -1,6 +1,4 @@
 @import './_mixins.scss';
-// @import './_typo.scss';
-// @import './_reset.scss';
 
 :root {
   --color-primary: #fab641;
@@ -58,27 +56,6 @@ img {
   box-sizing: border-box;
   backface-visibility: hidden;
 }
-
-// html {
-//   font-size: 62.5%;
-
-//   @include respond(big-desktop) {
-//     font-size: 100%;
-//   }
-
-//   @include respond(tab-land) {
-//     font-size: 66.25%; //1rem = 8px
-//   }
-
-//   @include respond(tab-port) {
-//     font-size: 50%; //1rem = 9px
-//   }
-
-//   @include respond(phone) {
-//     font-size: 50%;
-//   }
-// 
-// }
 
 input,
 select {
