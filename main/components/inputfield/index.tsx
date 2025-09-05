@@ -1,20 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react'
 import './index.scss'
 
-export interface InputProps extends React.InputHTMLAttributes<any> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	label?: string;
-	className?: string;
 	warning?: string;
 	showWarning?: boolean;
-	onChange?:
-	| React.ChangeEventHandler<HTMLInputElement>
-	| React.ChangeEventHandler<HTMLTextAreaElement>
-	| any;
-	as?: "textarea";
-	rows?: number;
-	required?: boolean;
 }
-export const InputField: React.FC<InputProps> = ({ ...props }) => {
+
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+	label?: string;
+	warning?: string;
+	showWarning?: boolean;
+}
+
+export const Input: React.FC<InputProps> = ({ ...props }) => {
 	const {
 		label,
 		name,
@@ -26,8 +26,6 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 		minLength,
 		showWarning,
 		defaultValue,
-		as,
-		rows,
 		disabled,
 		id,
 		onChange,
@@ -57,39 +55,21 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 				</label>
 			)}
 			<div className='input'>
-				{as ? (
-					<textarea
-						name={name}
-						className={`${className}`}
-						placeholder={placeholder}
-						onChange={onChange}
-						required={required}
-						minLength={minLength}
-						defaultValue={defaultValue}
-						rows={rows}
-						style={showWarning ? { borderColor: "#d92d20" } : {}}
-						disabled={disabled}
-						id={id}
-						data-mtk-input={true}
-						{...rest}
-					/>
-				) : (
-					<input
-						name={name}
-						className={`input-field ${className}`}
-						placeholder={placeholder}
-						type={type === 'password' ? passwordType : type}
-						disabled={disabled}
-						onChange={onChange}
-						id={id}
-						required={required}
-						minLength={minLength}
-						defaultValue={defaultValue}
-						style={showWarning ? { borderColor: "#d92d20" } : {}}
-						data-mtk-input={true}
-						{...rest}
-					/>
-				)}
+				<input
+					name={name}
+					className={`input-field ${className}`}
+					placeholder={placeholder}
+					type={type === 'password' ? passwordType : type}
+					disabled={disabled}
+					onChange={onChange}
+					id={id}
+					required={required}
+					minLength={minLength}
+					defaultValue={defaultValue}
+					style={showWarning ? { borderColor: "#d92d20" } : {}}
+					data-mtk-input={true}
+					{...rest}
+				/>
 				{type === 'password' && (
 					<button type='button' onClick={tooglePaswword}>
 						{
@@ -108,41 +88,69 @@ export const InputField: React.FC<InputProps> = ({ ...props }) => {
 };
 
 
-export interface OTPInputProps extends React.InputHTMLAttributes<any> {
+export const Textarea: React.FC<TextareaProps> = (props) => {
+	const {
+		label,
+		name,
+		warning,
+		required = false,
+		showWarning,
+		disabled,
+		id,
+		onChange,
+	} = props;
+
+	return (
+		<div className="input-group">
+			{label && (
+				<label
+					className={`input-label ${disabled && "disabled"}`}
+					htmlFor={name}>
+					{label}
+					&nbsp;
+					{required === true ? (
+						<span className="input-field--required">*</span>
+					) : (
+						<span className="input-field--optional">(optional)</span>
+					)}
+				</label>
+			)}
+			<div className='input'>
+				<textarea
+					{...props}
+					name={name}
+					onChange={onChange}
+					required={required}
+					style={showWarning ? { borderColor: "#d92d20" } : {}}
+					disabled={disabled}
+					id={id}
+					data-mtk-input={true}
+				/>
+			</div>
+			{showWarning && warning && (
+				<label className="input-warning">{warning}</label>
+			)}
+		</div>
+	);
+};
+export interface OTPInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	num?: number;
 	getOTP?: (otp: string) => void;
 	label?: string;
 	className?: string;
 	warning?: string;
 	showWarning?: boolean;
-	onChange?:
-	| React.ChangeEventHandler<HTMLInputElement>
-	| React.ChangeEventHandler<HTMLTextAreaElement>
-	| any;
-	as?: "textarea";
-	rows?: number;
 	required?: boolean;
 }
-export const OTPInput: React.FC<OTPInputProps> = ({ ...props }) => {
+export const OTPInput: React.FC<OTPInputProps> = (props) => {
 	const {
 		getOTP,
 		num = 6,
 		label,
 		name,
-		className,
-		placeholder,
-		type,
-		warning,
 		required = false,
-		minLength,
-		showWarning,
-		defaultValue,
-		as,
-		rows,
 		disabled,
-		id,
-		onChange,
-		...rest
+		className,
 	} = props;
 	const [otp, setOtp] = useState(new Array(num).fill(''));
 
@@ -197,7 +205,8 @@ export const OTPInput: React.FC<OTPInputProps> = ({ ...props }) => {
 				<div className="otp-input">
 					{otp.map((data, index) => (
 						<input
-							className="otp-input-field"
+							{...props}
+							className={`otp-input-field ${className}`}
 							type="text"
 							name="otp"
 							maxLength={1}

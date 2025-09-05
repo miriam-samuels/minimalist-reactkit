@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, ReactNode, SetStateAction, useState } from 'react'
+import React, { Dispatch, Fragment, ReactNode, SetStateAction } from 'react'
 
 import './index.scss'
 // if you don't want to pass an array just can call the AccordionMain component for each  item
@@ -17,7 +17,7 @@ export function Accordion({ item, controls, icon, alwaysOpen }: { item: Accordio
       <div id='accordion'>
          {/* if you pass an array of objects  */}
          {
-            Array.isArray(item) && item?.map((item: AccordionItem, idx: number) => (
+            Array.isArray(item) && item?.map((item: AccordionItem) => (
                <AccordionMain item={item} isOpen={isOpen} setIsOpen={setIsOpen} controls={controls} icon={icon} alwaysOpen={alwaysOpen} />
             ))
          }

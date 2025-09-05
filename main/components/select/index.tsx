@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { ChangeEvent, useState } from 'react'
 import useClose from '../../hooks/useClose'
 import './index.scss'
 
@@ -6,8 +7,8 @@ export interface SelectProps {
    idx?: number
    name: string;
    label?: string;
-   options?: any[] | Option[];
-   defaultValue?: Option;
+   options?: Option[];
+   value?: Option;
    className?: string;
    isSearchable?: boolean;
    placeholder?: string;
@@ -18,11 +19,11 @@ export interface SelectProps {
 export type Option = { label: any; value: any; disabled?: boolean; }
 
 export function Select(props: SelectProps) {
-   const { idx, label, name, options, defaultValue, className, isSearchable, placeholder, handleChange: change, isMulti } = props;
+   const { idx, label, name, options, value: val, className, isSearchable, placeholder, handleChange: change, isMulti } = props;
    const [isOpen, setIsOpen] = useState<boolean>(false);
-   const [value, setValue] = useState<Option | undefined>(defaultValue);
+   const [value, setValue] = useState<Option | undefined>(val);
    const [filteredOptions, setFilteredOptions] = useState<Option[] | undefined>(options);
-   const ref: any = useClose(() => setIsOpen(false))
+   const ref = useClose(() => setIsOpen(false))
 
    //  for is multi
    const [values, setValues] = useState<Option[]>([]);
@@ -31,14 +32,14 @@ export function Select(props: SelectProps) {
 
    const removeValidation = () => {
       // validation remove
-      const el: any = ref.current?.querySelector('[data-mtk-input]')
+      const el = ref.current?.querySelector('[data-mtk-input]')
 
       el.classList.remove('invalid')
 
       if (el.nextElementSibling?.classList.contains('input-error')) el.nextElementSibling.remove()
    }
 
-   const handleSearch = (e: any) => {
+   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
       const val = { label: e.target.value, value: e.target.value }
       setValue(val)
       change(val.value, name, idx);
@@ -66,7 +67,7 @@ export function Select(props: SelectProps) {
       removeValidation()
    }
 
-   const clearItem = (val: any) => {
+   const clearItem = (val: Option) => {
       setValues(() => values.filter(v => v.value != val.value))
    }
 
