@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CodeBlock from "../../components/code-block";
 import { accordionItems } from "../../variables";
-import { Pill, BtnPrimary, BtnSecondary, Accordion, InputField, Alert, Form, Modal, Tab, Toggle, OTPInput } from "minimalist-reactkit";
+import { Pill,  Accordion, Input, Form, Modal, Tab, Toggle, OTPInput } from "minimalist-reactkit";
 import { Table } from "../../components/table";
 import { Select } from "../../components/select";
 
@@ -119,90 +119,6 @@ type AccordionItem = {
                   <Accordion item={accordionItems} />
                </div>
             </div>
-            <div className="card grid-margin" id="alert">
-               <div className="card-body">
-                  <h3 className="mb-4">Alert</h3>
-                  <CodeBlock>
-                     {`
-import {Alert} from 'minimalist-reactkit';
-
-<Alert
-   text = "Hello World" 
-   className = "info"
-/>
-`}
-                  </CodeBlock>
-
-                  <h3 className="mb-4">Types</h3>
-                  <CodeBlock>
-                     {`
-type AlertProps = {
-   className?: string; // danger, info, warning, success
-   text: string;
-   show: boolean;
-   hide?: () => void;
-}
-`}
-                  </CodeBlock>
-                  <h3 className="mb-4">Preview</h3>
-                  <BtnPrimary
-                     onClick={() => {
-                        setShowAlert(!showAlert);
-                     }}
-                  >
-                     Click to {showAlert ? "hide" : "show"} alert
-                  </BtnPrimary>
-                  <Alert text="Hello World" show={showAlert} className="info" />
-               </div>
-            </div>
-            <div className="card grid-margin" id="button">
-               <div className="card-body">
-                  <h3 className="mb-4">Button</h3>
-                  <CodeBlock>
-                     {`
-import {BtnPrimary, BtnSecondary, BtnTetiary, BtnAlternate} from 'minimalist-reactkit';
-
-<BtnPrimary className="btn-success">Click Me</BtnPrimary>
-<BtnPrimary className="btn-info">Click Me</BtnPrimary>
-<BtnPrimary className="btn-danger">Click Me</BtnPrimary>
-<BtnPrimary className="btn-warning">Click Me</BtnPrimary>
-
-<BtnSecondary className="btn-success">Click Me</BtnSecondary>
-<BtnSecondary className="btn-info">Click Me</BtnSecondary>
-<BtnSecondary className="btn-danger">Click Me</BtnSecondary>
-<BtnSecondary className="btn-warning">Click Me</BtnSecondary>
-`}
-                  </CodeBlock>
-
-                  <h3 className="mb-4">Types</h3>
-                  <CodeBlock>
-                     {`
-interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-   onClick?:
-   | ((event?: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>)
-   | undefined | any;
-   children?: React.ReactNode | Array<React.ReactNode>;
-}
-`}
-                  </CodeBlock>
-                  <h3 className="mb-4">Preview</h3>
-                  <div className="flex-2">
-                     <BtnPrimary className="btn-success">Click Me</BtnPrimary>
-                     <BtnPrimary className="btn-info">Click Me</BtnPrimary>
-                     <BtnPrimary className="btn-danger">Click Me</BtnPrimary>
-                     <BtnPrimary className="btn-warning">Click Me</BtnPrimary>
-                  </div>
-
-                  <br />
-                  <br />
-                  <div className="flex-2">
-                     <BtnSecondary className="btn-success">Click Me</BtnSecondary>
-                     <BtnSecondary className="btn-info">Click Me</BtnSecondary>
-                     <BtnSecondary className="btn-danger">Click Me</BtnSecondary>
-                     <BtnSecondary className="btn-warning">Click Me</BtnSecondary>
-                  </div>
-               </div>
-            </div>
             <div className="card grid-margin" id="form">
                <div className="card-body">
                   <h3 className="mb-4">Form</h3>
@@ -259,7 +175,7 @@ FormHTMLAttributes<HTMLFormElement>
                      {`
 import {InputField} from 'minimalist-reactkit';
 
-<InputField
+<Input
    label="Name"
    required
 />
@@ -285,7 +201,7 @@ interface InputProps extends React.InputHTMLAttributes<any> {
 `}
                   </CodeBlock>
                   <h3 className="mb-4">Preview</h3>
-                  <InputField label="Name" required />
+                  <Input label="Name" required />
                </div>
             </div>
             <div className="card grid-margin" id="modal">
