@@ -1,23 +1,36 @@
-
-
 #mtk-form {
+  & .input-error {
+    // position: absolute;
+    bottom: -20px;
+    color: red !important;
+    font-weight: 300;
+    width: 100%;
+    word-wrap: break-word;
+    line-height: 1.6rem;
+    text-align: left;
+    margin-top: 0px;
+    font-size: var(--text-xs);
+  }
+
+  & .select {
     & .input-error {
-        color: red !important;
-        font-weight: 300;
-        width: 100%;
-        word-wrap: break-word;
-        line-height: 1.6rem;
-        text-align: left;
-        margin-top: 3px;
+      bottom: -25%;
     }
+  }
 
-    & .select{
-        & .input-error {
-            bottom: -25%;
-        }
-    }
+  & input.invalid, textarea.invalid {
+    border: 1px solid red !important;
+    margin-bottom: 0.3em;
+  }
 
-    & input.invalid{
-        border: 1px solid red !important;
-    }
+  & input[type='radio'].invalid {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    outline: none;
+    border: 3px solid red;
+    margin-bottom: 0em;
+  }
 }

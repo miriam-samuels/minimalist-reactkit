@@ -48,20 +48,10 @@ img {
   pointer-events: none;
 }
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  box-sizing: border-box;
-  backface-visibility: hidden;
-}
 
 input,
 select {
   outline: none;
-  border: 1px solid currentColor;
 }
 
 .back {
