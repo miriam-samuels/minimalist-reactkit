@@ -1,4 +1,4 @@
-#mtk-form {
+#mtk_form {
   & .input-error {
     // position: absolute;
     bottom: -20px;
@@ -18,7 +18,8 @@
     }
   }
 
-  & input.invalid, textarea.invalid {
+  & input.invalid,
+  textarea.invalid {
     border: 1px solid red !important;
     margin-bottom: 0.3em;
   }
@@ -33,4 +34,5 @@
     border: 3px solid red;
     margin-bottom: 0em;
   }
+
 }

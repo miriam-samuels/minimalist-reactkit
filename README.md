@@ -95,7 +95,7 @@ Get validated inputs
 ```jsx
 
   <Table
-   head={[
+   header={[
         { name: 'Applicant Name', accessor: 'name' },// add assesor if you want sortable columns
         { name: 'Status', accessor: 'status' },
         { name: 'Booking Id', accessor: 'flightId' },
@@ -113,7 +113,7 @@ Get validated inputs
 ```jsx
 
   <Table
-     head={[
+     header={[
         { name: 'Applicant Name', accessor: 'name' },// add assesor if you want sortable columns
         { name: 'Status', accessor: 'status' },
         { name: 'Booking Id', accessor: 'flightId' },

@@ -93,8 +93,8 @@ export function Select(props: SelectProps) {
                         <input type="text" className={className} defaultValue={value?.label || ''} placeholder={placeholder} readOnly={!isSearchable} onChange={handleSearch} data-mtk-input={true} />
                   }
                   <span>
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                     <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.0522 2.34787L7.42725 7.97287C7.34886 8.05153 7.25571 8.11394 7.15315 8.15653C7.0506 8.19911 6.94064 8.22104 6.82959 8.22104C6.71854 8.22104 6.60858 8.19911 6.50602 8.15653C6.40346 8.11394 6.31032 8.05153 6.23193 7.97287L0.606932 2.34787C0.448424 2.18936 0.359375 1.97438 0.359375 1.75021C0.359375 1.52605 0.448424 1.31107 0.606932 1.15256C0.765441 0.994049 0.980424 0.905 1.20459 0.905C1.42875 0.905 1.64374 0.994049 1.80224 1.15256L6.83029 6.1806L11.8583 1.15185C12.0168 0.993346 12.2318 0.904297 12.456 0.904297C12.6802 0.904297 12.8951 0.993346 13.0536 1.15185C13.2122 1.31036 13.3012 1.52535 13.3012 1.74951C13.3012 1.97368 13.2122 2.18866 13.0536 2.34717L13.0522 2.34787Z" fill="#1E1E1E" />
                      </svg>
                   </span>
                </div>
